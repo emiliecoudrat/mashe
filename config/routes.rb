@@ -3,7 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :parents
   root to: "home#index"
-  resources :kids
+  resources :kids do
+    resources :parentships
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
