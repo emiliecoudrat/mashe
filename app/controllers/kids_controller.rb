@@ -1,4 +1,6 @@
-class KidController < ApplicationController
+class KidsController < ApplicationController
+  skip_before_action :authenticate_parent!, only: :index
+
   def new
   end
 
