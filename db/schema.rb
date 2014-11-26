@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141126142808) do
+ActiveRecord::Schema.define(version: 20141126155831) do
+
+  create_table "active_admin_comments", force: true do |t|
+    t.string   "namespace"
+    t.text     "body"
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
 
   create_table "kids", force: true do |t|
     t.string   "firstname"
@@ -21,6 +36,15 @@ ActiveRecord::Schema.define(version: 20141126142808) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "levels", force: true do |t|
+    t.string   "name"
+    t.integer  "school_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "levels", ["school_id"], name: "index_levels_on_school_id"
 
   create_table "parents", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -35,6 +59,7 @@ ActiveRecord::Schema.define(version: 20141126142808) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin"
   end
 
   add_index "parents", ["email"], name: "index_parents_on_email", unique: true
@@ -49,5 +74,15 @@ ActiveRecord::Schema.define(version: 20141126142808) do
 
   add_index "parentships", ["kid_id"], name: "index_parentships_on_kid_id"
   add_index "parentships", ["parent_id"], name: "index_parentships_on_parent_id"
+
+  create_table "schools", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "city"
+    t.string   "zipcode"
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
