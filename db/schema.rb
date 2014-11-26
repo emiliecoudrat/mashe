@@ -40,26 +40,24 @@ ActiveRecord::Schema.define(version: 20141126144731) do
   add_index "parents", ["email"], name: "index_parents_on_email", unique: true
   add_index "parents", ["reset_password_token"], name: "index_parents_on_reset_password_token", unique: true
 
-<<<<<<< HEAD
+  create_table "parentships", force: true do |t|
+    t.integer  "kid_id"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "parentships", ["kid_id"], name: "index_parentships_on_kid_id"
+  add_index "parentships", ["parent_id"], name: "index_parentships_on_parent_id"
+
   create_table "schools", force: true do |t|
     t.string   "name"
     t.string   "address"
     t.string   "city"
     t.string   "zipcode"
     t.string   "country"
-=======
-  create_table "parentships", force: true do |t|
-    t.integer  "kid_id"
-    t.integer  "parent_id"
->>>>>>> master
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
-=======
-  add_index "parentships", ["kid_id"], name: "index_parentships_on_kid_id"
-  add_index "parentships", ["parent_id"], name: "index_parentships_on_parent_id"
-
->>>>>>> master
 end
