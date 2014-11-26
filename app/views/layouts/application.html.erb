@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,9 +20,13 @@
   <body>
 
     <%= render 'layouts/navbar' %>
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <%end%>
     <%= yield %>
-
-  <!-- -->
 
     <%= render 'layouts/footer' %>
     <%= javascript_include_tag 'application' %>

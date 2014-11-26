@@ -5,7 +5,6 @@ class CreateKids < ActiveRecord::Migration
       t.string :lastname
       t.date :birthdate
       t.string :gender
-
       t.timestamps
     end
   end
