@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Mashe</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
 
-<%= yield %>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-</body>
+    <title>
+      <%= content_for?(:title) ? yield(:title) : "Ma Share-Ecole" %>
+    </title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+    <%= csrf_meta_tags %>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stylesheets/navbar.css">
+
+  </head>
+  <body>
+
+    <%= render 'layouts/navbar' %>
+    <%= yield %>
+
+  <!-- -->
+
+    <%= render 'layouts/footer' %>
+    <%= javascript_include_tag 'application' %>
+    <%= yield(:js)%>
+
+  </body>
 </html>
+
+
+
