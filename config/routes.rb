@@ -1,6 +1,20 @@
 Rails.application.routes.draw do
 
 
+  get 'parentships/index'
+
+  get 'parentships/show'
+
+  get 'parentships/edit'
+
+  get 'parentships/update'
+
+  get 'parentships/new'
+
+  get 'parentships/create'
+
+  get 'parentships/delete'
+
   devise_for :parents
   root to: "home#index"
   resources :kids
