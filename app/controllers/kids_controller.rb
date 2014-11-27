@@ -3,18 +3,18 @@ class KidsController < ApplicationController
   skip_before_action :authenticate_parent!, only: :index
 
   def new
-    @kid = Kid.new
+    @kid = Kid.current_user.new
     respond_with(@kid)
   end
 
   def create
-    @kid = Kid.new(kid_params)
+    @kid = @parent.kid(kid_params)
     @kid.save
     respond_with(@kid)
   end
 
   def index
-    @kids = Kid.all.camp_id
+
   end
 
   def show
