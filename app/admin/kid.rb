@@ -12,5 +12,12 @@ ActiveAdmin.register Kid do
 
   permit_params :firstname, :lastname, :birthdate, :gender
 
+  index do
+    selectable_column
+    column :id
+    column :firstname
+    column :lastname
+    actions
+  end
 
 end
