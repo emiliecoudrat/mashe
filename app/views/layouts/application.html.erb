@@ -25,6 +25,11 @@
 
     <%= render 'layouts/footer' %>
     <%= javascript_include_tag 'application' %>
+    <!-- Typahead.js is used to display the auto-completion menu -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.4/typeahead.bundle.min.js"></script>
+    <!-- Algolia -->
+    <script src="//cdn.jsdelivr.net/algoliasearch/latest/algoliasearch.min.js"></script>
+
     <%= yield(:js)%>
 
   </body>
