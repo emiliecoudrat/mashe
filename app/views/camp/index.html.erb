@@ -1,2 +1,26 @@
-<h1>Camp#index</h1>
-<p>Find me in app/views/camp/index.html.erb</p>
+<h1> Classe de votre enfant </h1>
+  </div>
+
+      <h2><%= @scholarships.camp each do |scholarship| %></h2>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                  <%= camp.kid each do |kid| %>
+                      <%= kid.parent each do |parent| %>
+                        <%= parent.name %>
+                        <%= parent.email %>
+                        <%= parent.tel %>
+                      <% end %>
+                  <% end %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                </div>
+            </div>
+        </div>
+      <% end %>
