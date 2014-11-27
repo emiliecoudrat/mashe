@@ -1,6 +1,14 @@
-
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+// Import other CSS
+@import "navbar";
+@import "form";
+@import "home";
+
+body {
+  padding-top: 40px;
+}
