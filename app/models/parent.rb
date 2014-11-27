@@ -6,5 +6,5 @@ class Parent < ActiveRecord::Base
   has_many :parentships
   has_many :kids, through: :parentships
 
-   validates_presence_of :gender, :lastname, :firstname, :tel, :email, :password, :picture, :statut
+   validates_presence_of :title, :last_name, :first_name, :phone_number, :email, :password
 end
