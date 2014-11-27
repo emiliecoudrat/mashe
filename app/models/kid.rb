@@ -1,6 +1,6 @@
 class Kid < ActiveRecord::Base
   GENDERS = [ 'm', 'f' ]
-
+  belongs_to :scholarship
   has_many :parentships
   has_many :parents, through: :parentships
 
