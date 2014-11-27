@@ -56,3 +56,4 @@ gem "rails-i18n", "~> 4.0.0"
 
 gem 'activeadmin', github: 'activeadmin'
 gem 'country_select', github: 'stefanpenner/country_select'
+
