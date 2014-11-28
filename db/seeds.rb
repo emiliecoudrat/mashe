@@ -73,12 +73,18 @@ SCHOOLS.times do |i|
 
           puts "[KID #{l}] #{kid.first_name} #{kid.last_name}"
 
-          first_parent = parents.sample
-          second_parent = parents.sample
-          other_parent = parents.sample
-          first_parent.parentships.create(kid: kid)
-          second_parent.parentships.create(kid: kid)
-          other_parent.parentships.create(kid: kid)
+          if (0...100).to_a.sample <= 80
+            mother = parents.sample
+            mother.parentships.create(kid: kid, status: 'mother')
+          end
+          if (0...100).to_a.sample <= 60
+            father = parents.sample
+            father.parentships.create(kid: kid, status: 'father')
+          end
+          if (0...100).to_a.sample <= 30
+            other = parents.sample
+            other.parentships.create(kid: kid, status: 'other')
+          end
           camp.scholarships.create(kid: kid)
         end
       end

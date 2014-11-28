@@ -3,15 +3,17 @@ class KidsController < ApplicationController
   skip_before_action :authenticate_parent!, only: :index
 
   def new
-    @kid = Kid.new
+    @kid = @parent.kid.new
   end
 
   def create
-
+    @kid = @parent.kid.new(kid_params)
+    @kid.save
   end
 
   def index
-    @kids = Camp.kid.all
+    @camp = Camp.find(params[:camp_id])
+    @kids = @camp.kids.all
   end
 
   def show

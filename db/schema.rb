@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20141127133803) do
-=======
 ActiveRecord::Schema.define(version: 20141128094812) do
->>>>>>> master
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -98,10 +94,6 @@ ActiveRecord::Schema.define(version: 20141128094812) do
   add_index "parentships", ["parent_id"], name: "index_parentships_on_parent_id"
 
   create_table "scholarships", force: true do |t|
-<<<<<<< HEAD
-    t.integer  "year"
-=======
->>>>>>> master
     t.integer  "camp_id"
     t.integer  "kid_id"
     t.datetime "created_at"

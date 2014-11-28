@@ -1,24 +1,45 @@
-
-<h1><div class="text-center"> Classe de votre enfant </h1>
+<h1>
+  <div class="text-center">
+    Classe de votre enfant
   </div>
+</h1>
 
-      <h2></h2>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-
-
+<div class="container">
+  <% @kids.each do |kid| %>
+    <div class="row well">
+      <div class="col-sm-3">
+        <%= kid.first_name%> <%= kid.last_name %>
+      </div>
+      <div class="col-sm-9">
+        <div class="row">
+          <% kid.parentships.each do |parentship| %>
+            <div class="col-sm-6">
+              <div class="row">
+                <div class="col-sm-8">
+                  <div>
+                    <strong>
+                      <%= parentship.parent.first_name %>
+                      <%= parentship.parent.last_name %>
+                    </strong>
+                    <span class="label label-primary"><%= parentship.status %></span>
+                  </div>
+                  <div>
+                    <i class="fa fa-envelope-o"></i>
+                    <%= parentship.parent.email %>
+                  </div>
+                  <div>
+                    <i class="fa fa-phone"></i>
+                    <%= parentship.parent.phone_number %>
+                  </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12">
+                <div class="col-sm-4">
+                  <%# image_tag parentship.parent.picture.url %>
                 </div>
+              </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12">
-                </div>
-            </div>
+          <% end %>
         </div>
-
-<p></p>
-
+      </div>
+    </div>
+  <% end %>
+</div>
