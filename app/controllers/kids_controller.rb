@@ -3,18 +3,15 @@ class KidsController < ApplicationController
   skip_before_action :authenticate_parent!, only: :index
 
   def new
-    @kid = Kid.current_user.new
-    respond_with(@kid)
+    @kid = Kid.new
   end
 
   def create
-    @kid = @parent.kid(kid_params)
-    @kid.save
-    respond_with(@kid)
+
   end
 
   def index
-
+    @kids = Camp.kid.all
   end
 
   def show
@@ -35,7 +32,7 @@ private
   end
 
   def kid_params
-    params.require(:kid).permit(:firstname, :lastname, :birthdate, :gender)
+    params.require(:kid).permit(:first_name, :last_name, :birthdate, :gender)
   end
 
 end
