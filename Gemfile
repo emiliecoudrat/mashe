@@ -41,6 +41,8 @@ gem 'devise-i18n-views'
 
 gem "rails-i18n", "~> 4.0.0"
 
+gem 'faker'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -58,3 +60,4 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'country_select', github: 'stefanpenner/country_select'
 
 gem "algoliasearch-rails"
+
