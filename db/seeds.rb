@@ -16,7 +16,7 @@ parent.save!
 # Create 2000 parents
 parents = []
 PARENTS.times do |i|
-  parent = Parent.create! ({
+  parent = Parent.create ({
     title: Faker::Name.prefix,
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,

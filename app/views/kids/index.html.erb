@@ -21,7 +21,9 @@
                       <%= parentship.parent.first_name %>
                       <%= parentship.parent.last_name %>
                     </strong>
-                    <span class="label label-primary"><%= parentship.status %></span>
+                    <span class="label label-primary">
+                      <%= status_label parentship.status %>
+                    </span>
                   </div>
                   <div>
                     <i class="fa fa-envelope-o"></i>
@@ -33,6 +35,7 @@
                   </div>
                 </div>
                 <div class="col-sm-4">
+                  <%= image_tag "https://s3.amazonaws.com/uifaces/faces/twitter/adellecharles/73.jpg" %>
                   <%# image_tag parentship.parent.picture.url %>
                 </div>
               </div>
