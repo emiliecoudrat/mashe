@@ -6,40 +6,42 @@
 
 </div>
 
-<div class="backgroundSearch">
+<div class="backgroundSearch text-center">
   <div class="container">
     <div class="row">
-      <p class="text-center">Je trouve mon école</p>
+      <p>Je trouve mon école</p>
       <div class="col-xs-10 col-sm-6 col-md-6 col-lg-4 col-xs-offset-1 col-sm-offset-3 col-md-offset-3 col-lg-offset-4">
-        <div class="input-group">
-          <input type="text" class="form-control" id="query">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Go!</button>
-          </span>
+        <form class="form-inline">
+          <div class="form-group">
+            <input type="text" class="form-control" id="query">
+          </div>
+          <button class="btn btn-primary" type="button">Go!</button>
         </div><!-- /input-group -->
       </div><!-- /.col-lg-6 -->
     </div><!-- /.row -->
     <div class="row">
-      <p class="text-center" id="add_new_school">Je n'ai pas trouvé mon école... Je l'ajoute!</p>
+      <p id="add_new_school">Je n'ai pas trouvé mon école... Je l'ajoute!</p>
       <!-- Indicates a successful or positive action -->
-      <div class="text-center">
+      <div>
         <button type="button" class="btn btn-default">Ajouter une école</button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container">
+<div class="container pictos">
   <div class="row">
-    <div class="col-xs-6 col-md-4">
+    <div class="col-xs-6 col-md-3 text-center">
+      <%= image_tag "messharecontacts.png" %>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-6 col-md-4">
+    <div class="col-xs-6 col-md-3 text-center">
+      <%= image_tag "mashareecole.png" %>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-6 col-xs-offset-3 col-md-4">
+    <div class="col-xs-6 col-md-3 text-center">
+      <%= image_tag "mashareurgence.png" %>
+    </div>
+    <div class="col-xs-6 col-md-3 text-center">
+      <%= image_tag "masharetirelire.png" %>
     </div>
   </div>
 </div>

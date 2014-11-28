@@ -20,6 +20,7 @@ ActiveAdmin.register Camp do
     column :level
     column :school
     column :confidential_code
+    column :year
     actions
   end
 end
