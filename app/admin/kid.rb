@@ -1,5 +1,9 @@
 ActiveAdmin.register Kid do
 
+  filter :schools
+  filter :camps
+  # filter :birthdate
+
   form do |f|
     f.inputs "Kid" do
       f.input :first_name
@@ -18,6 +22,9 @@ ActiveAdmin.register Kid do
     column :first_name
     column :last_name
     column :camp
+    column :birthdate
+    column :gender
+    column :created_at
     actions
   end
 

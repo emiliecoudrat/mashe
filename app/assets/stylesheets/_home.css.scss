@@ -56,3 +56,17 @@
   font-size: 25px;
   font-weight: normal;
 }
+
+.pictos {
+  position: relative;
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 100px;
+
+  img {
+    width: 50%;
+    border: 2px solid grey;
+    border-radius: 50%;
+    padding: 20px;
+  }
+}
