@@ -16,7 +16,7 @@ ActiveAdmin.register Kid do
     selectable_column
     column :id
     column :first_name
-    column :lastname
+    column :last_name
     actions
   end
 
