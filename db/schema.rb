@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141127133804) do
+ActiveRecord::Schema.define(version: 20141128090445) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -41,8 +41,8 @@ ActiveRecord::Schema.define(version: 20141127133804) do
   add_index "camps", ["school_id"], name: "index_camps_on_school_id"
 
   create_table "kids", force: true do |t|
-    t.string   "firstname"
-    t.string   "lastname"
+    t.string   "first_name"
+    t.string   "last_name"
     t.date     "birthdate"
     t.string   "gender"
     t.datetime "created_at"

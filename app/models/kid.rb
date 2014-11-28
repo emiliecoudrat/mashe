@@ -4,6 +4,6 @@ class Kid < ActiveRecord::Base
   has_many :parentships
   has_many :parents, through: :parentships
 
-  validates_presence_of :firstname, :lastname, :birthdate, :gender
+  validates_presence_of :first_name, :last_name, :birthdate, :gender
   validates_inclusion_of :gender, in: GENDERS
 end

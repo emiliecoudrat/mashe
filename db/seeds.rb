@@ -66,13 +66,13 @@ SCHOOLS.times do |i|
         kids = []
         KIDS_PER_CAMP.times do |l|
           kid = Kid.create! ({
-            firstname: Faker::Name.first_name,
-            lastname: Faker::Name.last_name,
+            first_name: Faker::Name.first_name,
+            last_name: Faker::Name.last_name,
             birthdate: Faker::Date.backward(14),
             gender: Kid::GENDERS.sample
           })
 
-          puts "[KID #{l}] #{kid.firstname} #{kid.lastname}"
+          puts "[KID #{l}] #{kid.first_name} #{kid.last_name}"
 
           first_parent = parents.sample
           second_parent = parents.sample
