@@ -1,0 +1,23 @@
+$(document).ready(function() {
+  // Replace the following values by your ApplicationID and ApiKey.
+  var algolia = new AlgoliaSearch('<%= ENV['ALGOLIA_ID'] %>', '<%= ENV['ALGOLIA_API_KEY'] %>');
+  // replace YourIndexName by the name of the index you want to query.
+  var index = algolia.initIndex('School');
+
+  // typeahead.js initialization
+  $('#query').typeahead({ hint: false }, {
+    source: index.ttAdapter({ hitsPerPage: 5 }),
+    displayKey: 'address',
+    templates: {
+      suggestion: function(hit) {
+        // render the hit
+        return '<div class="hit">' +
+          '<div class="address">' +
+            hit._highlightResult.address.value + ' ' +
+            '(' + hit._highlightResult.name.value + ' - ' + hit._highlightResult.city.value + ')' +
+          '</div>' +
+        '</div>';
+      }
+    }
+  });
+});

@@ -3,10 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .banner {
-  background-image: image-url("banner.jpg");
-  background-size: cover;
+  background-image: image-url("banner.png"), image-url("yellow-and-white-chevron.jpg");
+  background-size: cover, contain;
+  background-repeat: no-repeat, repeat;
   height: 370px;
-  padding-top: 30px;
+  padding-top: 30px, 30px;
   text-align: center;
   width: 100%;
   position: relative;
@@ -24,7 +25,7 @@
   font-weight: 300;
   letter-spacing: 2px;
   margin-bottom: 2em;
-  color: #e1cb82;
+  color: #cb6c5a;
 }
 
 .banner p {
@@ -35,12 +36,19 @@
   margin-bottom: 2em;
 }
 
+#add_new_school{
+  padding-top: 1em;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
 .backgroundSearch {
   position: relative;
   width: 100%;
   background-color: rgba(109, 182, 136, 0.8);
   padding-top: 25px;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 
 .backgroundSearch p {

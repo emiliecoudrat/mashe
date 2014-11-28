@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20141127133803) do
+=======
+ActiveRecord::Schema.define(version: 20141128094812) do
+>>>>>>> master
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -35,14 +39,15 @@ ActiveRecord::Schema.define(version: 20141127133803) do
     t.integer  "school_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "year"
   end
 
   add_index "camps", ["level_id"], name: "index_camps_on_level_id"
   add_index "camps", ["school_id"], name: "index_camps_on_school_id"
 
   create_table "kids", force: true do |t|
-    t.string   "firstname"
-    t.string   "lastname"
+    t.string   "first_name"
+    t.string   "last_name"
     t.date     "birthdate"
     t.string   "gender"
     t.datetime "created_at"
@@ -72,6 +77,10 @@ ActiveRecord::Schema.define(version: 20141127133803) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "admin"
+    t.string   "title"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone_number"
   end
 
   add_index "parents", ["email"], name: "index_parents_on_email", unique: true
@@ -82,13 +91,17 @@ ActiveRecord::Schema.define(version: 20141127133803) do
     t.integer  "parent_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status"
   end
 
   add_index "parentships", ["kid_id"], name: "index_parentships_on_kid_id"
   add_index "parentships", ["parent_id"], name: "index_parentships_on_parent_id"
 
   create_table "scholarships", force: true do |t|
+<<<<<<< HEAD
     t.integer  "year"
+=======
+>>>>>>> master
     t.integer  "camp_id"
     t.integer  "kid_id"
     t.datetime "created_at"

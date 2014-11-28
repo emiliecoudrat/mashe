@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   ActiveAdmin.routes(self)
 
   devise_for :parents
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
   resources :camps do
     resources :kids, only: :index
   end
+
 
   resources :kids do
     resources :parentships
