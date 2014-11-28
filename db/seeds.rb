@@ -46,33 +46,32 @@ SCHOOLS.times do |i|
 
     puts "[LEVEL #{j}] #{level_name}"
 
-    # Create 5 classes per level
-    camps = []
-    CAMPS_PER_LEVEL.times do |k|
-      camp = level.camps.create({
-        name: Faker::Commerce.color.capitalize,
-        confidential_code:Faker::Code.ean,
-        level: level,
-        school: school,
-      })
 
-      puts "[CAMP #{k}] #{camp.name}"
+    [2012, 2013, 2014].each do |year|
 
-      [2012, 2013, 2014].each do |year|
+      puts "[YEAR #{year}] #{year}"
 
-        puts "[YEAR #{year}] #{year}"
+      CAMPS_PER_LEVEL.times do |k|
 
-        # Create 20 kids
-        kids = []
+        camp = level.camps.create({
+          name: Faker::Commerce.color.capitalize,
+          confidential_code:Faker::Code.ean,
+          level: level,
+          school: school,
+          year: year
+        })
+
+        puts "[CAMP #{k}] #{camp.name}"
+
         KIDS_PER_CAMP.times do |l|
           kid = Kid.create! ({
-            firstname: Faker::Name.first_name,
-            lastname: Faker::Name.last_name,
+            first_name: Faker::Name.first_name,
+            last_name: Faker::Name.last_name,
             birthdate: Faker::Date.backward(14),
             gender: Kid::GENDERS.sample
           })
 
-          puts "[KID #{l}] #{kid.firstname} #{kid.lastname}"
+          puts "[KID #{l}] #{kid.first_name} #{kid.last_name}"
 
           first_parent = parents.sample
           second_parent = parents.sample
@@ -80,7 +79,7 @@ SCHOOLS.times do |i|
           first_parent.parentships.create(kid: kid)
           second_parent.parentships.create(kid: kid)
           other_parent.parentships.create(kid: kid)
-          camp.scholarships.create(kid: kid, year: year)
+          camp.scholarships.create(kid: kid)
         end
       end
     end

@@ -58,3 +58,6 @@ gem 'faker'
 
 gem 'activeadmin', github: 'activeadmin'
 gem 'country_select', github: 'stefanpenner/country_select'
+
+gem "algoliasearch-rails"
+
