@@ -1,5 +1,6 @@
 class KidsController < ApplicationController
   before_action :set_kid, only: [:show, :edit, :update, :destroy]
+  before_action :set_camp, only: :index
   skip_before_action :authenticate_parent!, only: :index
 
   def new
@@ -12,7 +13,6 @@ class KidsController < ApplicationController
   end
 
   def index
-    @camp = Camp.find(params[:camp_id])
     @kids = @camp.kids.all
   end
 
@@ -31,6 +31,10 @@ class KidsController < ApplicationController
 private
   def set_kid
     @kid = Kid.find(params[:id])
+  end
+
+  def set_camp
+    @camp = Camp.find(params[:camp_id])
   end
 
   def kid_params
