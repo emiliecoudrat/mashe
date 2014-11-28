@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  resources :adverts
+
   ActiveAdmin.routes(self)
 
   devise_for :parents

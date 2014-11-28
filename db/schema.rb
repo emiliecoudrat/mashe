@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141128094812) do
+ActiveRecord::Schema.define(version: 20141128230919) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -27,6 +27,23 @@ ActiveRecord::Schema.define(version: 20141128094812) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+
+  create_table "adverts", force: true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "category"
+    t.string   "transaction"
+    t.integer  "price_cents"
+    t.boolean  "published"
+    t.boolean  "sold"
+    t.integer  "parent_id"
+    t.integer  "school_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "adverts", ["parent_id"], name: "index_adverts_on_parent_id"
+  add_index "adverts", ["school_id"], name: "index_adverts_on_school_id"
 
   create_table "camps", force: true do |t|
     t.string   "name"
