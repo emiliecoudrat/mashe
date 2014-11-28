@@ -5,7 +5,12 @@ Rails.application.routes.draw do
 
   devise_for :parents
   root to: "home#index"
-  resources :camps
+
+  resources :camps do
+    resources :kids, only: :index
+  end
+
+
   resources :kids do
     resources :parentships
   end
