@@ -44,7 +44,7 @@ private
   end
 
   def advert_params
-    params.require(:advert).permit(:title, :description, :category, :transaction, :price_cents, :published, :sold, :parent_id, :school_id)
+    params.require(:advert).permit(:title, :description, :category, :transac, :price_cents, :published, :sold, :parent_id, :school_id)
   end
 
 end
