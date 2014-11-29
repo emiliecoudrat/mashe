@@ -1,5 +1,5 @@
 class UpdateColumnAdvert < ActiveRecord::Migration
   def change
-    rename_column :advert, :transaction, :transac
+    rename_column :adverts, :transaction, :transac
   end
 end
