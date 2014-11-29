@@ -1,19 +1,30 @@
 require "faker"
 
+# Faker creations
 PARENTS = 100
 SCHOOLS = 1
-CAMPS_PER_LEVEL = 5
+# 8 levels
+CAMPS_PER_LEVEL = 2
 KIDS_PER_CAMP = 20
+ADVERTS_PER_PARENT = 5
 
+# Destroy old seeds when new faker seeds
 School.destroy_all
 Parent.destroy_all
 Kid.destroy_all
 
+# Create admin profil
 parent = Parent.new(email: 'admin@shareecole.com', password: 'shareecole', title: "M", first_name: 'Admin', last_name: 'Admin', phone_number: Faker::PhoneNumber.phone_number)
 parent.admin = true
 parent.save!
 
-# Create 2000 parents
+# Create test advert
+advert = Advert.new(title: 'jeux de DS Pets Rescue 5', description: 'Jeu de DS Pets Rescue 5 en très bon état.
+Vendu pour cause de non utilisation....', category: 'jeux', transac: 'je vends', price_cents: '10',
+ published: true, sold: false)
+advert.save!
+
+# Create 100 parents
 parents = []
 PARENTS.times do |i|
   parent = Parent.create ({
@@ -28,7 +39,71 @@ PARENTS.times do |i|
   puts "[PARENT #{i}] Creating parent #{parent.first_name} #{parent.last_name}"
 end
 
-# Create 10 schools
+
+# Create 5 annonces / parent
+adverts = []
+ADVERTS_PER_PARENT.times do |a|
+  advert = parent.adverts.create ({
+    title: Faker::Commerce.product_name,
+    description: Faker::Lorem.sentences
+    category: category,
+    transac: transac,
+    price_cents: Faker::Commerce.price,
+    published: true,
+    sold: false,
+    parent: parent,
+    school: school,
+  })
+  adverts << advert
+  puts "[ADVERT #{i}] Creating advert #{advert.title} #{advert.category} "
+    # Specificities for category and types of transaction :
+    # Be careful, in the Advert table, the name of the column is transac because transaction is a key_word in ActiveAdmin.
+    if (0...5).to_a.sample <= 3
+      sale = adverts.sample
+      sale.create(advert: advert, transac: 'je vends')
+    end
+    if (0...5).to_a.sample <= 1
+      loan = adverts.sample
+      loan.create(advert: advert, transac: 'je prête')
+    end
+    if (0...5).to_a.sample <= 1
+      gift = adverts.sample
+      gift.create(advert: advert, transac: 'je donne')
+    end
+    if (0...5).to_a.sample <= 2
+      game = adverts.sample
+      game.create(advert: advert, category: 'jeux')
+    end
+    if (0...5).to_a.sample <= 2
+      party = adverts.sample
+      party.create(advert: advert, category: 'fête')
+    end
+    if (0...5).to_a.sample <= 2
+      marryp = adverts.sample
+      marryp.create(advert: advert, category: 'garde')
+    end
+    if (0...5).to_a.sample <= 1
+      classroom = adverts.sample
+      classroom.create(advert: advert, category: 'classe')
+    end
+    if (0...5).to_a.sample <= 1
+      english = adverts.sample
+      english.create(advert: advert, category: 'anglais')
+    end
+    if (0...5).to_a.sample <= 3
+      home = adverts.sample
+      home.create(advert: advert, category: 'maison')
+    if (0...5).to_a.sample <= 2
+      baby = adverts.sample
+      baby.create(advert: advert, category: 'bébé')
+    end
+    if (0...5).to_a.sample <= 1
+      emergency = adverts.sample
+      emergency.create(advert: advert, category: 'help')
+    end
+end
+
+# Create 1 school
 schools = []
 SCHOOLS.times do |i|
   school = School.create({
@@ -40,7 +115,7 @@ SCHOOLS.times do |i|
   })
   puts "[SCHOOL #{i}] #{school.name}"
 
-  # Create levels
+  # Create 8 levels
   %w(PS MS GS CP CE1 CE2 CM1 CM2).each_with_index do |level_name, j|
     level = school.levels.create(name: level_name)
 
