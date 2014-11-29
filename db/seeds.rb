@@ -18,7 +18,6 @@ parent = Parent.new(email: 'admin@shareecole.com', password: 'shareecole', title
 parent.admin = true
 parent.save!
 
-
 # Create 100 parents
 parents = []
 PARENTS.times do |i|
@@ -34,80 +33,43 @@ PARENTS.times do |i|
   puts "[PARENT #{i}] Creating parent #{parent.first_name} #{parent.last_name}"
 end
 
-
-# Create 5 annonces / parent
-adverts = []
-ADVERTS_PER_PARENT.times do |a|
-  advert = Advert.create ({
-    title: Faker::Commerce.product_name,
-    description: Faker::Lorem.sentences,
-    price_cents: Faker::Commerce.price,
-    parent: parent,
-  })
-  adverts << advert
-  puts "[ADVERT #{a}] Creating advert #{advert.title}"
-end
-    # Specificities for category and types of transaction :
-    # Be careful, in the Advert table, the name of the column is transac because transaction is a key_word in ActiveAdmin.
-    if (0...5).to_a.sample <= 3
-      sale = advert.sample.create(advert: advert, transac: 'je vends')
-    end
-    if (0...5).to_a.sample <= 1
-      loan = adverts.sample.create(advert: advert, transac: 'je prête')
-    end
-    if (0...5).to_a.sample <= 1
-      gift = adverts.sample.create(advert: advert, transac: 'je donne')
-    end
-    if (0...5).to_a.sample <= 2
-      game = adverts.sample.create(advert: advert, category: 'jeux')
-    end
-    if (0...5).to_a.sample <= 2
-      party = adverts.sample.create(advert: advert, category: 'fête')
-    end
-    if (0...5).to_a.sample <= 2
-      marryp = adverts.sample.create(advert: advert, category: 'garde')
-    end
-    if (0...5).to_a.sample <= 1
-      classroom = adverts.sample.create(advert: advert, category: 'classe')
-    end
-    if (0...5).to_a.sample <= 1
-      english = adverts.sample.create(advert: advert, category: 'anglais')
-    end
-    if (0...5).to_a.sample <= 3
-      home = adverts.sample.create(advert: advert, category: 'maison')
-    if (0...5).to_a.sample <= 2
-      baby = adverts.sample.create(advert: advert, category: 'bébé')
-    end
-    if (0...5).to_a.sample <= 1
-      emergency = adverts.sample.create(advert: advert, category: 'help')
-    end
-end
-
 # Create 1 school
 schools = []
-SCHOOLS.times do |i|
-  school = School.create({
-    name: "Ecole #{Faker::Name.name}",
-    address: Faker::Address.street_address,
-    city: Faker::Address.city,
-    zipcode: Faker::Address.zip_code,
-    country:Faker::Address.country,
-  })
-  puts "[SCHOOL #{i}] #{school.name}"
+  SCHOOLS.times do |i|
+    school = School.create({
+      name: "Ecole #{Faker::Name.name}",
+      address: Faker::Address.street_address,
+      city: Faker::Address.city,
+      zipcode: Faker::Address.zip_code,
+      country:Faker::Address.country,
+    })
+      puts "[SCHOOL #{i}] #{school.name}"
 
-  # Create 8 levels
-  %w(PS MS GS CP CE1 CE2 CM1 CM2).each_with_index do |level_name, j|
-    level = school.levels.create(name: level_name)
+    parents.each do |parent|
+    if (0..5).to_a.sample <= 3
+      school.adverts.create!(parent: parent, title: Faker::Commerce.product_name, description: Faker::Lorem.sentences, category: 'jeux' ,
+        price_cents: Faker::Commerce.price, transaction_types: 'je vends')
+    end
+    if (0..5).to_a.sample <= 1
+      school.adverts.create!(parent: parent, title: Faker::Commerce.product_name, description: Faker::Lorem.sentences, category: 'fête' ,
+        price_cents: Faker::Commerce.price, transaction_types: 'je prête')
+    end
+    if (0..5).to_a.sample <= 1
+      school.adverts.create!(parent: parent, title: Faker::Commerce.product_name, description: Faker::Lorem.sentences, category: 'garde' ,
+        price_cents: Faker::Commerce.price, transaction_types: 'je donne')
+    end
 
-    puts "[LEVEL #{j}] #{level_name}"
+    # Create 8 levels
+    %w(PS MS GS CP CE1 CE2 CM1 CM2).each_with_index do |level_name, j|
+      level = school.levels.create(name: level_name)
+      puts "[LEVEL #{j}] #{level_name}"
 
+      # Create 3 scholarships
+      [2012, 2013, 2014].each do |year|
+        puts "[YEAR #{year}] #{year}"
 
-    [2012, 2013, 2014].each do |year|
-
-      puts "[YEAR #{year}] #{year}"
-
+      # Create 2 camps / level
       CAMPS_PER_LEVEL.times do |k|
-
         camp = level.camps.create({
           name: Faker::Commerce.color.capitalize,
           confidential_code:Faker::Code.ean,
@@ -115,9 +77,9 @@ SCHOOLS.times do |i|
           school: school,
           year: year
         })
-
         puts "[CAMP #{k}] #{camp.name}"
 
+        # Create 20 kids / camp
         KIDS_PER_CAMP.times do |l|
           kid = Kid.create! ({
             first_name: Faker::Name.first_name,
@@ -125,7 +87,6 @@ SCHOOLS.times do |i|
             birthdate: Faker::Date.backward(14),
             gender: Kid::GENDERS.sample
           })
-
           puts "[KID #{l}] #{kid.first_name} #{kid.last_name}"
 
           if (0...100).to_a.sample <= 80
@@ -141,8 +102,9 @@ SCHOOLS.times do |i|
             other.parentships.create(kid: kid, status: 'other')
           end
           camp.scholarships.create(kid: kid)
-        end
+          end
         end
       end
     end
   end
+end

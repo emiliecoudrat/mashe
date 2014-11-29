@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-
-  resources :adverts
+# seb : ici nester adverts dans school
+  resources :adverts do
+    resources :schools
+end
 
   ActiveAdmin.routes(self)
 
@@ -11,7 +13,6 @@ Rails.application.routes.draw do
   resources :camps do
     resources :kids, only: :index
   end
-
 
   resources :kids do
     resources :parentships

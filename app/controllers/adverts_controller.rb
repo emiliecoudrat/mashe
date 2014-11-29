@@ -1,7 +1,8 @@
 class AdvertsController < InheritedResources::Base
-  before_action :set_advert, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+  before_action :set_advert, only: [:show, :edit, :update, :destroy]
   before_action :set_school
   skip_before_action :authenticate_parent!
+
   def index
     @adverts = @school.adverts.all
   end
