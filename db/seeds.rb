@@ -18,11 +18,6 @@ parent = Parent.new(email: 'admin@shareecole.com', password: 'shareecole', title
 parent.admin = true
 parent.save!
 
-# Create test advert
-advert = Advert.new(title: 'jeux de DS Pets Rescue 5', description: 'Jeu de DS Pets Rescue 5 en très bon état.
-Vendu pour cause de non utilisation....', category: 'jeux', transac: 'je vends', price_cents: '10',
- published: true, sold: false)
-advert.save!
 
 # Create 100 parents
 parents = []
@@ -43,63 +38,48 @@ end
 # Create 5 annonces / parent
 adverts = []
 ADVERTS_PER_PARENT.times do |a|
-  advert = parent.adverts.create ({
+  advert = Advert.create ({
     title: Faker::Commerce.product_name,
-    description: Faker::Lorem.sentences
-    category: category,
-    transac: transac,
+    description: Faker::Lorem.sentences,
     price_cents: Faker::Commerce.price,
-    published: true,
-    sold: false,
     parent: parent,
-    school: school,
   })
   adverts << advert
-  puts "[ADVERT #{i}] Creating advert #{advert.title} #{advert.category} "
+  puts "[ADVERT #{a}] Creating advert #{advert.title}"
+end
     # Specificities for category and types of transaction :
     # Be careful, in the Advert table, the name of the column is transac because transaction is a key_word in ActiveAdmin.
     if (0...5).to_a.sample <= 3
-      sale = adverts.sample
-      sale.create(advert: advert, transac: 'je vends')
+      sale = advert.sample.create(advert: advert, transac: 'je vends')
     end
     if (0...5).to_a.sample <= 1
-      loan = adverts.sample
-      loan.create(advert: advert, transac: 'je prête')
+      loan = adverts.sample.create(advert: advert, transac: 'je prête')
     end
     if (0...5).to_a.sample <= 1
-      gift = adverts.sample
-      gift.create(advert: advert, transac: 'je donne')
+      gift = adverts.sample.create(advert: advert, transac: 'je donne')
     end
     if (0...5).to_a.sample <= 2
-      game = adverts.sample
-      game.create(advert: advert, category: 'jeux')
+      game = adverts.sample.create(advert: advert, category: 'jeux')
     end
     if (0...5).to_a.sample <= 2
-      party = adverts.sample
-      party.create(advert: advert, category: 'fête')
+      party = adverts.sample.create(advert: advert, category: 'fête')
     end
     if (0...5).to_a.sample <= 2
-      marryp = adverts.sample
-      marryp.create(advert: advert, category: 'garde')
+      marryp = adverts.sample.create(advert: advert, category: 'garde')
     end
     if (0...5).to_a.sample <= 1
-      classroom = adverts.sample
-      classroom.create(advert: advert, category: 'classe')
+      classroom = adverts.sample.create(advert: advert, category: 'classe')
     end
     if (0...5).to_a.sample <= 1
-      english = adverts.sample
-      english.create(advert: advert, category: 'anglais')
+      english = adverts.sample.create(advert: advert, category: 'anglais')
     end
     if (0...5).to_a.sample <= 3
-      home = adverts.sample
-      home.create(advert: advert, category: 'maison')
+      home = adverts.sample.create(advert: advert, category: 'maison')
     if (0...5).to_a.sample <= 2
-      baby = adverts.sample
-      baby.create(advert: advert, category: 'bébé')
+      baby = adverts.sample.create(advert: advert, category: 'bébé')
     end
     if (0...5).to_a.sample <= 1
-      emergency = adverts.sample
-      emergency.create(advert: advert, category: 'help')
+      emergency = adverts.sample.create(advert: advert, category: 'help')
     end
 end
 
@@ -162,7 +142,7 @@ SCHOOLS.times do |i|
           end
           camp.scholarships.create(kid: kid)
         end
+        end
       end
     end
   end
-end

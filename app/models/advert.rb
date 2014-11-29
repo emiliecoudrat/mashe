@@ -6,7 +6,7 @@ class Advert < ActiveRecord::Base
   has_many :camps, through: :schools
   monetize :price_cents
 
-  validates_presence_of :parent, :school, :price_cents, :title, :category, :transac, :description, :parent_id, :school_id
+  validates_presence_of :title, :description, :category, :transac, :price_cents, :parent_id, :school_id
   validates_inclusion_of :category, in: CATEGORYS
   validates_inclusion_of :transac, in: TRANSACS
 
