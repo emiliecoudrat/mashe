@@ -10,8 +10,14 @@ class Advert < ActiveRecord::Base
   validates_inclusion_of :categorie, in: CATEGORIES
   validates_inclusion_of :transaction_type, in: TRANSACTION_TYPES
 
+
+
+
+
+
+
   def display_name
-    "#{advert.title} - #{advert.categorie} - #{advert.transaction_type} - #{school.name}"
+    "#{@advert.title} - #{@advert.categorie} - #{@advert.transaction_type} - #{school.name}"
   end
 end
 

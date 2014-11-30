@@ -18,6 +18,11 @@ parent = Parent.new(email: 'admin@shareecole.com', password: 'shareecole', title
 parent.admin = true
 parent.save!
 
+# Create a test advert
+advert = Advert.new(title: 'legofriends', description: 'super état', categorie: 'jeux',
+ transaction_type: 'je vends', price_cents: 8, published: true, sold: false, school_id: 24, parent_id: 2926)
+advert.save!
+
 # Create 100 parents
 parents = []
 PARENTS.times do |i|
