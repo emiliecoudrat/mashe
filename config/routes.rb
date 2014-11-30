@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'guests/destroy'
+
   get 'guests/new'
 
   get 'guests/create'
