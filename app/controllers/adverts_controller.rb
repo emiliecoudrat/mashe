@@ -7,25 +7,37 @@ class AdvertsController < InheritedResources::Base
     @adverts = @school.adverts.all
   end
 
+  def show
+    @advert = @school.advert.find(params)[:id]
+  end
+
   def new
     @advert = @parent.advert.new
   end
 
   def create
     @advert = @parent.advert.new(advert_params)
-    @advert.save
-  end
-
-  def show
+    if @advert.save
+      redirect_to new_advert_path()
+    else
+      render :new
   end
 
   def edit
+    @advert = Advert.find(params[:id])
   end
 
   def update
+    @advert = Advert.find(params[:id])
+    if @advert.update(advert_params)
+      redirect_to advert_path
+    else
+      render :edit
   end
 
   def destroy
+    @advert = Advert.find(params[:id])
+    @advert.destroy
   end
 
 
@@ -44,7 +56,7 @@ private
   end
 
   def advert_params
-    params.require(:advert).permit(:title, :description, :category, :transac, :price_cents, :published, :sold, :parent_id, :school_id)
+    params.require(:advert).permit(:title, :description, :categorie, :transaction_type, :price_cents, :published, :sold)
   end
 
 end

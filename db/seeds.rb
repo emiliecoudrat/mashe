@@ -45,20 +45,6 @@ schools = []
     })
       puts "[SCHOOL #{i}] #{school.name}"
 
-    parents.each do |parent|
-    if (0..5).to_a.sample <= 3
-      school.adverts.create!(parent: parent, title: Faker::Commerce.product_name, description: Faker::Lorem.sentences, category: 'jeux' ,
-        price_cents: Faker::Commerce.price, transaction_types: 'je vends')
-    end
-    if (0..5).to_a.sample <= 1
-      school.adverts.create!(parent: parent, title: Faker::Commerce.product_name, description: Faker::Lorem.sentences, category: 'fête' ,
-        price_cents: Faker::Commerce.price, transaction_types: 'je prête')
-    end
-    if (0..5).to_a.sample <= 1
-      school.adverts.create!(parent: parent, title: Faker::Commerce.product_name, description: Faker::Lorem.sentences, category: 'garde' ,
-        price_cents: Faker::Commerce.price, transaction_types: 'je donne')
-    end
-
     # Create 8 levels
     %w(PS MS GS CP CE1 CE2 CM1 CM2).each_with_index do |level_name, j|
       level = school.levels.create(name: level_name)
@@ -89,6 +75,21 @@ schools = []
           })
           puts "[KID #{l}] #{kid.first_name} #{kid.last_name}"
 
+          parents = []
+          parents.each do |parent|
+          if (0..5).to_a.sample <= 3
+            school.adverts.create!(parent: parent, title: Faker::Commerce.product_name, description: Faker::Lorem.sentences, categorie: 'jeux' ,
+            price_cents: Faker::Commerce.price, transaction_type: 'je vends')
+          end
+          if (0..5).to_a.sample <= 1
+            school.adverts.create!(parent: parent, title: Faker::Commerce.product_name, description: Faker::Lorem.sentences, categorie: 'fête' ,
+            price_cents: Faker::Commerce.price, transaction_type: 'je prête')
+          end
+          if (0..5).to_a.sample <= 1
+            school.adverts.create!(parent: parent, title: Faker::Commerce.product_name, description: Faker::Lorem.sentences, categorie: 'garde' ,
+            price_cents: Faker::Commerce.price, transaction_type: 'je donne')
+          end
+
           if (0...100).to_a.sample <= 80
             mother = parents.sample
             mother.parentships.create(kid: kid, status: 'mother')
@@ -103,6 +104,7 @@ schools = []
           end
           camp.scholarships.create(kid: kid)
           end
+
         end
       end
     end

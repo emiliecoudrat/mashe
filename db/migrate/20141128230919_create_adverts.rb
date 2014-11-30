@@ -3,8 +3,8 @@ class CreateAdverts < ActiveRecord::Migration
     create_table :adverts do |t|
       t.string :title
       t.text :description
-      t.string :category
-      t.string :transaction
+      t.string :categorie
+      t.string :transaction_type
       t.integer :price_cents
       t.boolean :published
       t.boolean :sold
