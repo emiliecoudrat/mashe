@@ -1,8 +1,8 @@
 <%= bootstrap_form_for(@school) do |f| %>
-  <%= f.text_field :name, label: "Nom" %>
-  <%= f.text_field :address, label: "Adresse" %>
-  <%= f.text_field :zipcode, label: "Code postal" %>
-  <%= f.text_field :city, label: "Ville" %>
-  <%= f.text_field :country, label: "Pays" %>
+  <%= f.text_field :name, label: "Nom", placeholder: "Ecole Jules Ferry" %>
+  <%= f.text_field :address, label: "Adresse", placeholder: "3 rue du chat" %>
+  <%= f.text_field :zipcode, label: "Code postal", placeholder: "75005" %>
+  <%= f.text_field :city, label: "Ville", placeholder: "Paris" %>
+  <%= f.text_field :country, label: "Pays", placeholder: "France" %>
   <%= f.submit "Créez votre école" %>
 <% end %>
