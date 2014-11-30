@@ -1,18 +1,22 @@
 class AdvertsController < InheritedResources::Base
   before_action :set_advert, only: [:show, :edit, :update, :destroy]
-  before_action :set_school
   skip_before_action :authenticate_parent!
-  respond_to :html
+
 
   def new
     @advert = Advert.new
-    respond_with(@advert)
   end
 
   def create
     @advert = Advert.new(advert_params)
-    @advert.save
-    respond_with(@advert)
+    respond_to do |format|
+      if @advert.save
+        format.html { redirect_to @advert, notice: 'Votre annonce a bien été enregistrée, merci.' }
+        format.json { render :show, status: :created, location: @advert}
+      else
+        format.html { render :new }
+        format.json { render json: @advert.errors, status: :unprocessable_entity }
+      end
   end
 
   def index
@@ -21,7 +25,7 @@ class AdvertsController < InheritedResources::Base
   end
 
   def show
-    @advert = @school.advert.find(params)[:id]
+    @advert = Advert.find(params)[:id]
     respond_with(@advert)
   end
 
@@ -49,15 +53,5 @@ private
   def advert_params
     params.require(:advert).permit(:title, :description, :categorie, :transaction_type, :price_cents, :published, :sold)
   end
-
-  def set_parent
-    @parent = Parent.find(params[:parent_id])
-  end
-
-  def set_school
-    @school = School.find(params[:school_id])
-  end
-
 end
-
-
+end

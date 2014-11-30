@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-
-    resources :schools do
     resources :adverts
-end
+    resources :schools
 
   ActiveAdmin.routes(self)
 
