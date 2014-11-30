@@ -9,6 +9,7 @@ class Parent < ActiveRecord::Base
 
   validates_presence_of :title, :last_name, :first_name, :phone_number, :email, :password
 
+
   def display_name
     "#{title} #{first_name} #{last_name}"
   end
