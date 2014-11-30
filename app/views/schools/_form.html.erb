@@ -1,10 +1,9 @@
 <%= bootstrap_form_for(@school) do |f| %>
-  <%= f.text_field :name, label: "Nom de l'école" %>
+  <%= f.text_field :name, label: "Nom" %>
   <%= f.text_field :address, label: "Adresse" %>
-  <%= f.text.field :zipcode, label: "Code postal" %>
+  <%= f.text_field :zipcode, label: "Code postal" %>
   <%= f.text_field :city, label: "Ville" %>
   <%= f.text_field :country, label: "Pays" %>
-  <%= f.select :status, [[1, "Public"],[2, "Privé"]], {label: "Votre école est-elle un établissement public ou privé?"} %>
   <%= f.text_field :address, label: "" %>
   <%= f.submit "Créez votre école" %>
 <% end %>
