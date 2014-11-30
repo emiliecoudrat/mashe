@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     resources :kids, only: :index
   end
 
-  resources :events do
-    resources :guests
+  resources :schools do
+    resources :events, only: [ :new, :create, :edit, :update]
   end
 
   resources :kids do
