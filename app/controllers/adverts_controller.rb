@@ -3,49 +3,55 @@ class AdvertsController < InheritedResources::Base
   skip_before_action :authenticate_parent!
   respond_to :html
 
-  def new
-    @advert = Advert.new
-  end
 
-  def create
-    @advert = Advert.new(advert_params)
-    @advert.save
-    respond_with(@advert)
-  end
-
-  def index
+ def index
     @adverts = Advert.all
     respond_with(@adverts)
   end
 
   def show
-    @advert = Advert.find(params)[:id]
-    respond_with(@advert)
+  end
+
+  def new
+    @advert = Advert.new
+  end
+
+# essayer current_parent si current_user ne fonctionne pas
+  def create
+    @advert = current_user.adverts.new(advert_params)
+    if @advert.save
+      redirect_to @advert, notice: 'Bravo, votre share annonce a été correctement créée.'
+    else
+      render :new, notice: 'Mince, réessayer svp.'
+    end
   end
 
   def edit
-    @advert = Advert.find(params[:id])
   end
 
   def update
-    @advert.update(advert_params)
-    respond_with(@advert)
+    if @advert.update(advert_params)
+      redirect_to @advert, notice: 'Merci, votre share annonce a bien été mise à jour'
+    else
+      render :edit, notice: 'Mince, réessayer svp.'
+    end
   end
 
   def destroy
     @advert.destroy
-    respond_with(@advert)
+    redirect_to flats_path, notice: 'Votre share annonce a bien été supprimée'
   end
 
 
 private
 
+  def advert_params
+    params.require(:advert).permit(:title, :description, :categorie, :transaction_type, :price_cents)
+  end
+
   def set_advert
     @advert = Advert.find(params[:id])
   end
 
-  def advert_params
-    params.require(:advert).permit(:title, :description, :categorie, :transaction_type, :price_cents, :published, :sold)
-  end
 end
 
