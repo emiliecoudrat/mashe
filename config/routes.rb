@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   devise_for :parents
   root to: "home#index"
-  resources :schools
+  resources :schools do
+    resources :events, only: [ :new, :create, :edit, :update ]
+    end
   resources :camps
   resources :kids do
     resources :parentships
