@@ -31,6 +31,7 @@ gem 'binding_of_caller',     group: :development
 
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'bootstrap_form'
+gem 'chosen-rails'
 gem 'figaro'
 
 gem 'font-awesome-sass', '~> 4.2.0'
