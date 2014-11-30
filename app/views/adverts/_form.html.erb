@@ -1,53 +1,8 @@
-<%= form_for(@advert) do |f| %>
-  <% if @advert.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@advert.errors.count, "error") %> prohibited this advert from being saved:</h2>
-
-      <ul>
-      <% @advert.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :categorie %><br>
-    <%= f.text_field :categorie %>
-  </div>
-  <div class="field">
-    <%= f.label :transaction_type %><br>
-    <%= f.text_field :transaction_type %>
-  </div>
-  <div class="field">
-    <%= f.label :price_cents %><br>
-    <%= f.number_field :price_cents %>
-  </div>
-  <div class="field">
-    <%= f.label :published %><br>
-    <%= f.check_box :published %>
-  </div>
-  <div class="field">
-    <%= f.label :sold %><br>
-    <%= f.check_box :sold %>
-  </div>
-  <div class="field">
-    <%= f.label :parent_id %><br>
-    <%= f.text_field :parent_id %>
-  </div>
-  <div class="field">
-    <%= f.label :school_id %><br>
-    <%= f.text_field :school_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= bootstrap_form_for(@advert) do |f| %>
+    <%= f.text_field :categorie, label: "Thème", placeholder:"Jeux, garde d'enfants.."%>
+     <%= f.text_field :transaction_type, label:"Opportunités de type :" , placeholder:"Je vends, prête, donne, conseille" %>
+    <%= f.text_field :title, label: "Titre", placeholder: "ex : Chaussons de danse Répéto T28"%>
+    <%= f.text_area :description, label: "Description", placeholder: "Chaussons de danse de la marque Répéto de couleur rose, en parfait état. Ils n'ont jamais servi (erreur de taille lors de l'achat)" %>
+    <%= f.number_field :price_cents, label: "Votre prix", placeholder:"ex : 8 euros" %>
+    <%= f.submit "Publiez votre annonce"%>
 <% end %>

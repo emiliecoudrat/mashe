@@ -1,7 +1,7 @@
 class AdvertsController < InheritedResources::Base
   before_action :set_advert, only: [:show, :edit, :update, :destroy]
   skip_before_action :authenticate_parent!
-
+  respond_to :html
 
   def new
     @advert = Advert.new
@@ -9,14 +9,8 @@ class AdvertsController < InheritedResources::Base
 
   def create
     @advert = Advert.new(advert_params)
-    respond_to do |format|
-      if @advert.save
-        format.html { redirect_to @advert, notice: 'Votre annonce a bien été enregistrée, merci.' }
-        format.json { render :show, status: :created, location: @advert}
-      else
-        format.html { render :new }
-        format.json { render json: @advert.errors, status: :unprocessable_entity }
-      end
+    @advert.save
+    respond_with(@advert)
   end
 
   def index
@@ -54,4 +48,4 @@ private
     params.require(:advert).permit(:title, :description, :categorie, :transaction_type, :price_cents, :published, :sold)
   end
 end
-end
+

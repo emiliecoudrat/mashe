@@ -1,45 +1,69 @@
-<h1>
-  <div class="text-center">
-    Petites annonces des familles : c'est facile, vous vous croisez déjà à l'école !
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <div class="text-center">
+        <h1>Les share annonces des familles </h1>
+      </div>
+    </div>
   </div>
-</h1>
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <div class="text-center">
+        <h2>c'est facile, vous vous croisez tous les jours</h2>
+      </div>
+    </div>
+  </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Categorie</th>
-      <th>Transaction_type</th>
-      <th>Price cents</th>
-      <th>Published</th>
-      <th>Sold</th>
-      <th>Parent</th>
-      <th>School</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
+<div class="container">
+  <div class="row well">
+    <div class="col-sm-3">
+      <div>Thème</div>
+    </div>
+    <div class="col-sm-3">
+      <div>Opportunités</div>
+    </div>
+    <div class="col-sm-3">
+      <div>Titre</div>
+    </div>
+    <div class="col-sm-3">
+      <div>Prix</div>
+    </div>
+  </div>
+</div>
   <tbody>
-    <% @adverts.each do |advert| %>
-      <tr>
-        <td><%= advert.title %></td>
-        <td><%= advert.description %></td>
-        <td><%= advert.categorie %></td>
-        <td><%= advert.Transaction_type %></td>
-        <td><%= advert.price_cents %></td>
-        <td><%= advert.published %></td>
-        <td><%= advert.sold %></td>
-        <td><%= advert.parent %></td>
-        <td><%= advert.school %></td>
-        <td><%= link_to 'Show', advert %></td>
-        <td><%= link_to 'Edit', edit_advert_path(advert) %></td>
-        <td><%= link_to 'Destroy', advert, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="container">
+      <% @adverts.each do |advert| %>
+        <div class="row well">
+          <div class="col-sm-3">
+            <%= advert.categorie %>
+          </div>
+          <div class="col-sm-3">
+            <%= advert.transaction_type %>
+          </div>
+          <div class="col-sm-3">
+            <%= advert.title %>
+          </div>
+          <div class="col-sm-1">
+            <%= advert.price_cents %>
+          </div>
+          <div class="col-sm-1">
+            <%= link_to 'Voir le détail', advert %>
+          </div>
+        </div>
+      <% end %>
 
-<br>
+        <div class="row">
+          <div class="col-sm-3">
+            <%= link_to 'Publiez une annonce', new_advert_path %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <%= link_to 'Retour', new_advert_path %>
+          </div>
+        </div>
+    </div>
+</tbody>
 
-<%= link_to 'New Advert', new_advert_path %>
+
