@@ -1,22 +1,6 @@
 Rails.application.routes.draw do
 
 
-  get 'guests/destroy'
-
-  get 'guests/new'
-
-  get 'guests/create'
-
-  get 'guests/index'
-
-  get 'guests/show'
-
-  get 'guests/edit'
-
-  get 'guests/update'
-
-  get 'guests/delete'
-
   ActiveAdmin.routes(self)
 
   devise_for :parents
@@ -24,6 +8,10 @@ Rails.application.routes.draw do
 
   resources :camps do
     resources :kids, only: :index
+  end
+
+  resources :schools do
+    resources :events, only: [ :new, :create, :edit, :update]
   end
 
   resources :kids do
