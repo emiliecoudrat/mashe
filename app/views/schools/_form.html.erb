@@ -4,6 +4,6 @@
   <%= f.text_field :zipcode, label: "Code postal", placeholder: "75005" %>
   <%= f.text_field :city, label: "Ville", placeholder: "Paris" %>
   <%= f.text_field :country, label: "Pays", placeholder: "France" %>
-  <%= f.select :status, [[1, "Public"],[2, "Privé"]], {label: "Votre école est-elle un établissement public ou privé?"} %>
+  <%= f.select :status, [["Public", 1],["Privé", 2]], {label: "Votre école est-elle un établissement public ou privé?"} %>
   <%= f.submit "Créez votre école" %>
 <% end %>
