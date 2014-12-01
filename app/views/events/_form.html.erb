@@ -1,4 +1,4 @@
-  <%= bootstrap_form_for @event do |f| %>
+  <%= bootstrap_form_for [@school, @event] do |f| %>
     <div class="field">
       <%= f.label :name %>
       <br/>
@@ -9,7 +9,19 @@
       <br/>
       <%= f.text_field :description %>
     </div>
-    <h3>Guests</h3>
+    <div class="field">
+      <%= f.label :starts_at %>
+      <br/>
+      <%= f.text_field :starts_at %>
+    </div>
+    <div class="field">
+      <%= f.label :end_date %>
+      <br/>
+      <%= f.text_field :end_date %>
+    </div>
+
+
+    <h2>Guests</h2>
     <div id="guests">
       <%= f.fields_for :guests do |guest| %>
         <%= render 'guest_fields', :f => guest %>

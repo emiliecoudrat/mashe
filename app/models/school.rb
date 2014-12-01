@@ -4,6 +4,7 @@ class School < ActiveRecord::Base
   has_many :camps, through: :levels
   has_many :adverts
   has_many :events
+  has_many :guests, through: :events
 
   validates_presence_of :name, :address, :city, :zipcode, :country
 
