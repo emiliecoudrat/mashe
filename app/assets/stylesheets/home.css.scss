@@ -3,65 +3,73 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .banner {
-  background-image: image-url("banner.png"), image-url("yellow-and-white-chevron.jpg");
-  background-size: cover, contain;
-  background-repeat: no-repeat, repeat;
-  height: 370px;
-  padding-top: 30px, 30px;
+  background-image: image-url("banner.png");
+  background-color: #f8f7f3;
+  background-size: contain;
+  background-position: center, bottom;
+  background-repeat: no-repeat;
+  height: 600px;
+  padding-top: 120px, 30px;
+  margin-top: 0px;
   text-align: center;
   width: 100%;
   position: relative;
+  font-family: 'lato', sans-serif;
+  color: #666;
+  letter-spacing: 2px;
 }
 
 .banner h1 {
-  color: #cb6c5a;
-  font-size: 72px;
+  padding-top: 90px;
+  font-size: 60px;
+  line-height: 1.5;
   font-weight: normal;
 }
 
 .banner h2 {
   padding: 0.2em;
   font-size: 25px;
-  font-weight: 300;
-  letter-spacing: 2px;
+  line-height: 1;
+  font-weight: 200;
   margin-bottom: 2em;
-  color: #cb6c5a;
 }
 
 .banner p {
   padding: 1.2em;
   font-size: 26px;
   font-weight: 300;
-  letter-spacing: 2px;
   margin-bottom: 2em;
 }
 
 #add_new_school{
   padding-top: 1em;
-  font-size: 20px;
-  font-weight: 300;
-  letter-spacing: 2px;
+  font-weight: 300px;
+  color: #666;
 }
 
 .backgroundSearch {
   position: relative;
   width: 100%;
-  background-color: rgba(109, 182, 136, 0.8);
+  background-color: #f8f7f3;
   padding-top: 25px;
   padding-bottom: 30px;
-}
+  }
 
 .backgroundSearch p {
-  color: #cb6c5a;
-  font-size: 25px;
-  font-weight: normal;
+  padding-top: 40px;
+  padding-bottom: 5px;
+  color: #666;
+  font-family:'lato', sans-serif;
+  letter-spacing: 2px;
+  font-size: 2em;
+  line-height: 2em;
 }
 
 .pictos {
   position: relative;
   width: 100%;
   padding-top: 40px;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 
   img {
     width: 50%;
