@@ -1,0 +1,90 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <% content_for(:title) do %>
+      <%= "#{@advert.title}" %>
+      <% end %>
+    </div>
+  </div>
+ </div>
+
+<div class="container">
+<div class="row">
+  <div class="col-xs-12">
+     <h1> Share annonce  </h1>
+     <h2> <%= "#{@advert.title}"%> </h2>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="categorie">
+     <span> Thème : <%= "#{@advert.categorie}"%> </span>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="transaction-type">
+      <span> Opportunités : <%= "#{@advert.transaction_type}"%> </span>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="title">
+      <span> Titre : <%= "#{@advert.title}"%> </span>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="description">
+      <span> Description : <%= "#{@advert.description}"%> </span>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="price_cents">
+      <span class="pricetag">
+        <span> Prix : <%= "#{@advert.price_cents}"%>
+          €</span>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="created_at">
+      <span> Publiée le : <%= "#{@advert.created_at}"%> </span>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="updated_at">
+      <span> Mise à jour le : <%= "#{@advert.updated_at}"%> </span>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+    <%= link_to 'Edit', edit_advert_path(@advert), class:"btn-dmc" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12">
+<%= link_to 'Retour', adverts_path %>
+ </div>
+</div>

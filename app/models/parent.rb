@@ -5,6 +5,7 @@ class Parent < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :parentships
   has_many :kids, through: :parentships
+  has_many :adverts
   has_many :informations
 
   validates_presence_of :title, :last_name, :first_name, :phone_number, :email, :password
