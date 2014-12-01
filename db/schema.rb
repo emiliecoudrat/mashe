@@ -164,6 +164,8 @@ ActiveRecord::Schema.define(version: 20141201001201) do
     t.string   "country"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "status"
+    t.boolean  "validation"
   end
 
 end
