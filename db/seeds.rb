@@ -32,7 +32,7 @@ PARENTS.times do |i|
     last_name: Faker::Name.last_name,
     phone_number: Faker::PhoneNumber.phone_number,
     email: Faker::Internet.free_email,
-    password: Faker::Code.ean,
+    password: Faker::Code.ean
   })
   parents << parent
   puts "[PARENT #{i}] Creating parent #{parent.first_name} #{parent.last_name}"
@@ -47,6 +47,7 @@ schools = []
       city: Faker::Address.city,
       zipcode: Faker::Address.zip_code,
       country:Faker::Address.country,
+      validation: true
     })
       puts "[SCHOOL #{i}] #{school.name}"
 
