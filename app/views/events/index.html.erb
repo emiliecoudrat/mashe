@@ -1,2 +1,27 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<h1>
+  <div class="text-center">
+    Vos événements :
+  </div>
+</h1>
+
+<div class="container">
+  <div class="row well">
+    <% @events.each do |event| %>
+    <div class="col-sm-4">
+       <p><%= event.name %></p>
+       <p><%= event.description %></p>
+       <p><%= event.starts_at %></p>
+       <p><%= event.ends_at %></p>
+       <p class="show-event"><%= link_to "Voir le détail d'un événement", @school_event %></p>
+       <p class="destroy-event"> <%= link_to 'Supprimer un événement', @school_event, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+       <br>
+       <br>
+     </div>
+      <% end %>
+  <div class="row ">
+    <div class="col-xs-6 col-xs-offset-3 text-center">
+      <div class="new-event"><%= link_to 'Nouvel Evenement', @new_school_event %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,14 +1,18 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [ :show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :set_school
 
 
   def new
     @event = @school.events.new
+    next_wednesday = Date.parse('wednesday')
+    @event.starts_at = next_wednesday + 14.hours
+    @event.ends_at = next_wednesday + 17.hours
   end
 
   def create
     @event = @school.events.new(event_params)
+    @event.parent = current_parent
     if @event.save
       redirect_to @school, notice: 'Bravo, votre événement a bien été créé.'
     else
@@ -20,6 +24,8 @@ class EventsController < ApplicationController
   end
 
   def update
+    @event.update(event_params)
+    respond_with(@school_events)
   end
 
   def index
@@ -30,6 +36,8 @@ class EventsController < ApplicationController
   end
 
   def destroy
+    @school.event.destroy
+    respond_with(@school_events_path)
   end
 
 private
@@ -42,6 +50,6 @@ private
     end
 
     def event_params
-      params.require(:event).permit(:name, :description, :starts_at, :end_date, guest_attributes: [:id, :_destroy])
+      params.require(:event).permit(:name, :description, :starts_at, :ends_at, guest_attributes: [:id, :_destroy])
     end
 end
