@@ -2,14 +2,16 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def new
+    @event = @school.event.new
   end
 
   def create
-    @event = school.event.new(event_params)
-    if @event.save
-      redirect_to @school_event, notice: 'Bravo, votre événement a bien été créé.'
-    else
-      render :new, notice: 'Mince, réessayer svp.'
+    # @event = @school.event.new(event_params)
+    # if @event.save
+    #   redirect_to @school_event, notice: 'Bravo, votre événement a bien été créé.'
+    # else
+    #   render :new, notice: 'Petit problème... réessayer svp.'
+    # end
   end
 
   def edit
@@ -27,7 +29,7 @@ class EventsController < ApplicationController
   def destroy
   end
 
-  private
+private
     def set_school
       @school = School.find(params[:school_id])
     end
@@ -37,6 +39,6 @@ class EventsController < ApplicationController
     end
 
     def event_params
-      params.require(:event).permit(:name, :description, :starts_at, :end_date)
+      params.require(:event).permit(:name, :description, :starts_at, :end_date, guest_attributes: [:id, :_destroy])
     end
 end

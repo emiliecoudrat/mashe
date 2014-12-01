@@ -1,2 +1,16 @@
-<h1>Quel événement souhaitez-vous créer ?</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <div class="page-header">
+        <h1>Quel événement souhaitez-vous créer ?</h1>
+      </div>
+        <%= render 'events/form' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <%= link_to 'Retour', school_even_path %>
+    </div>
+  </div>
+</div>
