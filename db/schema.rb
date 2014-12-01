@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141129221620) do
+ActiveRecord::Schema.define(version: 20141201001201) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -79,6 +79,20 @@ ActiveRecord::Schema.define(version: 20141129221620) do
 
   add_index "guests", ["event_id"], name: "index_guests_on_event_id"
   add_index "guests", ["parent_id"], name: "index_guests_on_parent_id"
+
+  create_table "information", force: true do |t|
+    t.string   "name"
+    t.string   "content"
+    t.string   "categorie"
+    t.datetime "end_date"
+    t.integer  "camp_id"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "information", ["camp_id"], name: "index_information_on_camp_id"
+  add_index "information", ["parent_id"], name: "index_information_on_parent_id"
 
   create_table "kids", force: true do |t|
     t.string   "first_name"
