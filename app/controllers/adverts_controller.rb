@@ -18,7 +18,7 @@ class AdvertsController < InheritedResources::Base
 
 # essayer current_parent si current_user ne fonctionne pas
   def create
-    @advert = current_user.adverts.new(advert_params)
+    @advert = current_parent.adverts.new(advert_params)
     if @advert.save
       redirect_to @advert, notice: 'Bravo, votre share annonce a été correctement créée.'
     else

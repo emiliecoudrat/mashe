@@ -12,10 +12,6 @@ class Advert < ActiveRecord::Base
 
 
 
-
-
-
-
   def display_name
     "#{@advert.title} - #{@advert.categorie} - #{@advert.transaction_type} - #{school.name}"
   end
