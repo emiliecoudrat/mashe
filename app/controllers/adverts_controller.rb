@@ -16,7 +16,7 @@ class AdvertsController < InheritedResources::Base
     @advert = Advert.new
   end
 
-# essayer current_parent si current_user ne fonctionne pas
+# rappel : current_parent et non current_user
   def create
     @advert = current_parent.adverts.new(advert_params)
     if @advert.save
