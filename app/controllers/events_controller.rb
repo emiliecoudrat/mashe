@@ -5,7 +5,11 @@ class EventsController < ApplicationController
   end
 
   def create
-
+    @event = school.event.new(event_params)
+    if @event.save
+      redirect_to @school_event, notice: 'Bravo, votre événement a bien été créé.'
+    else
+      render :new, notice: 'Mince, réessayer svp.'
   end
 
   def edit
@@ -24,6 +28,10 @@ class EventsController < ApplicationController
   end
 
   private
+    def set_school
+      @school = School.find(params[:school_id])
+    end
+
     def set_event
       @event = Event.find(params[:id])
     end
