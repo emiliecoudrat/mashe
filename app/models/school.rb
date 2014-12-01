@@ -8,9 +8,13 @@ class School < ActiveRecord::Base
 
   include AlgoliaSearch
 
-  algoliasearch do
-    attributesToIndex ['address', 'name', 'city']
-    # associated index settings can be configured from here
+  algoliasearch index_name: "#{self}#{ENV['ALGOLIA_SUFFIX']}", if: :validated? do
+    attribute :address, :name, :city
+  end
+
+  def validated?
+    raise "Put an ALGOLIA_SUFFIX in your config/application.yml" if Rails.env.development? && ENV['ALGOLIA_SUFFIX'].blank?
+    self.validation == true
   end
 
 end
