@@ -13,7 +13,7 @@
        <p><%= event.starts_at %></p>
        <p><%= event.ends_at %></p>
        <p class="show-event"><%= link_to "Voir le détail d'un événement", @school_event %></p>
-       <p class="destroy-event"> <%= link_to 'Supprimer un événement', school_event_path(event), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+       <p class="destroy-event"> <%= link_to 'Supprimer un événement', @school_event, method: :delete, data: { confirm: 'Are you sure?' } %></p>
        <br>
        <br>
      </div>

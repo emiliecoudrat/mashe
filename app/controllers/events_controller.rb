@@ -37,6 +37,7 @@ class EventsController < ApplicationController
 
   def destroy
     @school.event.destroy
+    raise
     respond_with(@school_events)
   end
 
