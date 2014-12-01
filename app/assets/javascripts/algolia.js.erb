@@ -10,13 +10,15 @@ $(document).ready(function() {
     displayKey: 'address',
     templates: {
       suggestion: function(hit) {
+        if(hit.validation == true) {
         // render the hit
-        return '<div class="hit">' +
-          '<div class="address">' +
-            hit._highlightResult.address.value + ' ' +
-            '(' + hit._highlightResult.name.value + ' - ' + hit._highlightResult.city.value + ')' +
-          '</div>' +
-        '</div>';
+          return '<div class="hit">' +
+            '<div class="address">' +
+              hit._highlightResult.address.value + ' ' +
+              '(' + hit._highlightResult.name.value + ' - ' + hit._highlightResult.city.value + ')' +
+            '</div>' +
+          '</div>';
+        }
       }
     }
   });

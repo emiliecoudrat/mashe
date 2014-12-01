@@ -6,6 +6,7 @@ class School < ActiveRecord::Base
   validates_presence_of :name, :address, :city, :zipcode, :country
 
   include AlgoliaSearch
+
   algoliasearch do
     attributesToIndex ['address', 'name', 'city']
     # associated index settings can be configured from here
