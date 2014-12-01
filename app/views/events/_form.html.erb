@@ -1,0 +1,8 @@
+<%= bootstrap_form_for(@event) do |f| %>
+    <%= f.text_field :categorie, label: "Thème", placeholder:"Jeux, garde d'enfants.."%>
+     <%= f.text_field :transaction_type, label:"Opportunités de type :" , placeholder:"Je vends, prête, donne, conseille" %>
+    <%= f.text_field :title, label: "Titre", placeholder: "ex : Chaussons de danse Répéto T28"%>
+    <%= f.text_area :description, label: "Description", placeholder: "Chaussons de danse de la marque Répéto de couleur rose, en parfait état. Ils n'ont jamais servi (erreur de taille lors de l'achat)" %>
+    <%= f.number_field :price_cents, label: "Votre prix", placeholder:"ex : 8 euros" %>
+    <%= f.submit "Publiez votre annonce"%>
+<% end %>
