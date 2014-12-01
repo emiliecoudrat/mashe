@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin_2', as: 'rails_admin'
     resources :adverts
 
   ActiveAdmin.routes(self)
