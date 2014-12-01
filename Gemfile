@@ -64,7 +64,7 @@ gem 'acts-as-taggable-on', '~> 3.4'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
+gem 'rails_admin'
 
 gem 'activeadmin', github: 'activeadmin'
 gem 'country_select', github: 'stefanpenner/country_select'

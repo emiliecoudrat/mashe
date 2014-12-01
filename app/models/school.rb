@@ -19,6 +19,6 @@ class School < ActiveRecord::Base
   def validated?
     raise "Put an ALGOLIA_SUFFIX in your config/application.yml" if Rails.env.development? && ENV['ALGOLIA_SUFFIX'].blank?
     self.validation == true
-  end
 
+  end
 end

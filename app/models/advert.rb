@@ -6,14 +6,14 @@ class Advert < ActiveRecord::Base
   has_many :camps, through: :schools
   monetize :price_cents
 
-  validates_presence_of :title, :description, :categorie, :transaction_type, :price_cents
+  validates_presence_of :title, :description, :categorie, :transaction_type, :price_cents, :school
   validates_inclusion_of :categorie, in: CATEGORIES
   validates_inclusion_of :transaction_type, in: TRANSACTION_TYPES
 
 
 
   def display_name
-    "#{@advert.title} - #{@advert.categorie} - #{@advert.transaction_type} - #{school.name}"
+    "#{self.title} - #{self.categorie} - #{self.transaction_type} - #{self.school.name}"
   end
 end
 
