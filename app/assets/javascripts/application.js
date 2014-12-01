@@ -13,9 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-<<<<<<< HEAD
 //= require cocoon
-=======
 //= require bootstrap-sprockets
->>>>>>> master
+//= require chosen-jquery
 //= require_tree .
+
+$(document).ready(function() {
+  $('.add_fields').click(function() {
+    setTimeout(function() {
+      $(".chosen").chosen();
+    }, 1);
+  });
+});

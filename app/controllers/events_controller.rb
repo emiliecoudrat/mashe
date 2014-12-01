@@ -8,6 +8,7 @@ class EventsController < ApplicationController
     next_wednesday = Date.parse('wednesday')
     @event.starts_at = next_wednesday + 14.hours
     @event.ends_at = next_wednesday + 17.hours
+    @parents = @school.parents
   end
 
   def create
