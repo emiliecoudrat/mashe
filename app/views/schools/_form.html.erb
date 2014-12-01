@@ -1,9 +1,16 @@
 <%= bootstrap_form_for(@school) do |f| %>
   <%= f.text_field :name, label: "Nom", placeholder: "Ecole Jules Ferry" %>
   <%= f.text_field :address, label: "Adresse", placeholder: "3 rue du chat" %>
-  <%= f.text_field :zipcode, label: "Code postal", placeholder: "75005" %>
-  <%= f.text_field :city, label: "Ville", placeholder: "Paris" %>
+
+  <div class="row">
+    <div class="col-xs-6">
+      <%= f.text_field :zipcode, label: "Code postal", placeholder: "75005" %>
+    </div>
+    <div class="col-xs-6">
+      <%= f.text_field :city, label: "Ville", placeholder: "Paris" %>
+    </div>
+  </div>
   <%= f.text_field :country, label: "Pays", placeholder: "France" %>
   <%= f.select :status, [["Public", 1],["Privé", 2]], {label: "Votre école est-elle un établissement public ou privé?"} %>
-  <%= f.submit "Créez votre école" %>
+  <%= f.submit "Créez votre école", class: "btn btn-primary" %>
 <% end %>
