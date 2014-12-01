@@ -10,7 +10,6 @@ class School < ActiveRecord::Base
 
   include AlgoliaSearch
 
-
   algoliasearch index_name: "#{self}#{ENV['ALGOLIA_SUFFIX']}", if: :validated? do
     attribute :address, :name, :city
   end
@@ -20,5 +19,4 @@ class School < ActiveRecord::Base
     self.validation == true
 
   end
-
 end
