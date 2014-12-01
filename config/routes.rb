@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :camps do
     resources :kids, only: :index
+    resources :informations
   end
 
   resources :kids do
