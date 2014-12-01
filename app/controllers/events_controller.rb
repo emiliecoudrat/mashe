@@ -14,7 +14,7 @@ class EventsController < ApplicationController
     @event = @school.events.new(event_params)
     @event.parent = current_parent
     if @event.save
-      redirect_to @school, notice: 'Bravo, votre événement a bien été créé.'
+      redirect_to school_events_path, notice: 'Bravo, votre événement a bien été créé.'
     else
       render :new, notice: 'Petit problème... réessayer svp.'
     end
@@ -37,7 +37,7 @@ class EventsController < ApplicationController
 
   def destroy
     @school.event.destroy
-    respond_with(@school_events_path)
+    respond_with(@school_events)
   end
 
 private
