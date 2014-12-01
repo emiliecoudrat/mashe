@@ -2,11 +2,11 @@ require "faker"
 
 # Faker creations
 PARENTS = 100
-SCHOOLS = 1
+SCHOOLS = 5
 # 8 levels
 CAMPS_PER_LEVEL = 2
 KIDS_PER_CAMP = 20
-ADVERTS_PER_PARENT = 5
+ADVERTS_PER_PARENT = 2
 
 # Destroy old seeds when new faker seeds
 School.destroy_all
@@ -37,15 +37,18 @@ end
 # Create 1 school
 schools = []
   SCHOOLS.times do |i|
+
     school = School.create({
       name: "Ecole #{Faker::Name.name}",
       address: Faker::Address.street_address,
       city: Faker::Address.city,
       zipcode: Faker::Address.zip_code,
       country:Faker::Address.country,
-      validation: true
+      validation: [true, false].sample
+      status:["public", "private"].sample
     })
       puts "[SCHOOL #{i}] #{school.name}"
+
 
     # Create 8 levels
     %w(PS MS GS CP CE1 CE2 CM1 CM2).each_with_index do |level_name, j|
@@ -94,4 +97,10 @@ schools = []
       end
     end
   end
+end
+
+5.times do
+  school = School.all.sample
+  parent = school.kids.first.parents.first
+  Advert.create(school_id: school.id, parent_id: parent.id)
 end
