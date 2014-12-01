@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141201001201) do
+ActiveRecord::Schema.define(version: 20141201140428) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -64,11 +64,13 @@ ActiveRecord::Schema.define(version: 20141201001201) do
     t.datetime "updated_at"
     t.string   "name"
     t.datetime "starts_at"
-    t.datetime "end_at"
+    t.datetime "ends_at"
     t.text     "description"
+    t.integer  "school_id"
   end
 
   add_index "events", ["parent_id"], name: "index_events_on_parent_id"
+  add_index "events", ["school_id"], name: "index_events_on_school_id"
 
   create_table "guests", force: true do |t|
     t.integer  "event_id"

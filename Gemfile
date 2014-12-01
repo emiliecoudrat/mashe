@@ -71,3 +71,6 @@ gem 'country_select', github: 'stefanpenner/country_select'
 
 gem "algoliasearch-rails"
 
+gem 'cocoon'
+
+gem "letter_opener", group: :development

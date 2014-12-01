@@ -1,0 +1,30 @@
+  <%= bootstrap_form_for [@school, @event] do |f| %>
+    <div class="field">
+      <br/>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <br/>
+      <%= f.text_field :description %>
+    </div>
+    <div class="field">
+      <br/>
+      <%= f.datetime_select :starts_at %>
+    </div>
+    <div class="field">
+      <br/>
+      <%= f.datetime_select :ends_at %>
+    </div>
+
+
+    <h2>Guests</h2>
+    <div id="guests">
+      <%= f.fields_for :guests do |guest| %>
+        <%= render 'guest_fields', :f => guest %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association 'add guest', f, :guests %>
+      </div>
+    </div>
+    <%= f.submit %>
+<% end %>
