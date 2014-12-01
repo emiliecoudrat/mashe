@@ -18,10 +18,6 @@ parent = Parent.new(email: 'admin@shareecole.com', password: 'shareecole', title
 parent.admin = true
 parent.save!
 
-# Create a test advert
-advert = Advert.new(title: 'legofriends', description: 'super état', categorie: 'jeux',
- transaction_type: 'je vends', price_cents: 8, published: true, sold: false, school_id: 24, parent_id: 2926)
-advert.save!
 
 # Create 100 parents
 parents = []
@@ -32,7 +28,7 @@ PARENTS.times do |i|
     last_name: Faker::Name.last_name,
     phone_number: Faker::PhoneNumber.phone_number,
     email: Faker::Internet.free_email,
-    password: Faker::Code.ean,
+    password: Faker::Code.ean
   })
   parents << parent
   puts "[PARENT #{i}] Creating parent #{parent.first_name} #{parent.last_name}"
@@ -47,6 +43,7 @@ schools = []
       city: Faker::Address.city,
       zipcode: Faker::Address.zip_code,
       country:Faker::Address.country,
+      validation: true
     })
       puts "[SCHOOL #{i}] #{school.name}"
 
@@ -80,21 +77,6 @@ schools = []
           })
           puts "[KID #{l}] #{kid.first_name} #{kid.last_name}"
 
-          parents = []
-          parents.each do |parent|
-          if (0..5).to_a.sample <= 3
-            school.adverts.create!(parent: parent, title: Faker::Commerce.product_name, description: Faker::Lorem.sentences, categorie: 'jeux' ,
-            price_cents: Faker::Commerce.price, transaction_type: 'je vends')
-          end
-          if (0..5).to_a.sample <= 1
-            school.adverts.create!(parent: parent, title: Faker::Commerce.product_name, description: Faker::Lorem.sentences, categorie: 'fête' ,
-            price_cents: Faker::Commerce.price, transaction_type: 'je prête')
-          end
-          if (0..5).to_a.sample <= 1
-            school.adverts.create!(parent: parent, title: Faker::Commerce.product_name, description: Faker::Lorem.sentences, categorie: 'garde' ,
-            price_cents: Faker::Commerce.price, transaction_type: 'je donne')
-          end
-
           if (0...100).to_a.sample <= 80
             mother = parents.sample
             mother.parentships.create(kid: kid, status: 'mother')
@@ -109,8 +91,6 @@ schools = []
           end
           camp.scholarships.create(kid: kid)
           end
-
-        end
       end
     end
   end

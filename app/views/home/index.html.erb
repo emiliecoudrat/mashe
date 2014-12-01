@@ -1,5 +1,5 @@
 <div class="banner">
-  <h1>Ma Share-Ecole</h1>
+  <h1>Ma share école</h1>
   <h2>Le réseau parental qui vous simplifie la vie!</h2>
   <br>
   <!-- ajouter une barre de recherche  -->
@@ -11,19 +11,19 @@
     <div class="row">
       <p>Je trouve mon école</p>
       <div class="col-xs-10 col-sm-6 col-md-6 col-lg-4 col-xs-offset-1 col-sm-offset-3 col-md-offset-3 col-lg-offset-4">
-        <form class="form-inline">
+        <%= form_tag "/", method: :get, class: "form-inline" do %>
           <div class="form-group">
-            <input type="text" class="form-control"id="query">
+            <input type="text" class="form-control" id="query" name="school_address">
           </div>
-          <button class="btn btn-primary" type="button">Go!</button>
-        </div><!-- /input-group -->
+          <input type="submit" class="btn btn-primary" value="Go">
+        <% end %><!-- /input-group -->
       </div><!-- /.col-lg-6 -->
     </div><!-- /.row -->
     <div class="row">
-      <p id="add_new_school">Je n'ai pas trouvé mon école... Je l'ajoute!</p>
+      <p id="add_new_school">Je n'ai pas trouvé mon école...</p>
       <!-- Indicates a successful or positive action -->
       <div>
-        <button type="button" class="btn btn-default">Ajouter une école</button>
+        <%= link_to "je l'ajoute ici !", new_school_path, class: "btn btn-default" %>
       </div>
     </div>
   </div>
