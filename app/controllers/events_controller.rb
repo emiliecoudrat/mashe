@@ -10,7 +10,7 @@ class EventsController < ApplicationController
   def create
     @event = @school.events.new(event_params)
     if @event.save
-      redirect_to @school_event, notice: 'Bravo, votre événement a bien été créé.'
+      redirect_to @school, notice: 'Bravo, votre événement a bien été créé.'
     else
       render :new, notice: 'Petit problème... réessayer svp.'
     end
@@ -23,6 +23,7 @@ class EventsController < ApplicationController
   end
 
   def index
+    @events = @school.events.all
   end
 
   def show

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :schools do
-    resources :events, only: [ :new, :create, :edit, :update ]
+    resources :events, only: [ :new, :create, :edit, :update, :index, :show, :destroy ]
     end
 
   resources :camps do
