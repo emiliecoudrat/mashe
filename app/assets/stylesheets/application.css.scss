@@ -1,21 +1,11 @@
-.twitter-typeahead { width: 100%; }
-.twitter-typeahead .tt-input, .twitter-typeahead .tt-hint { width: 100%; margin: 0px; padding: 8px 12px; border: 2px solid #ccc; outline: none; }
-.twitter-typeahead .tt-input:focus { border: 2px solid #0097cf; }
-.twitter-typeahead .tt-hint { color: #999; }
-.twitter-typeahead .tt-dropdown-menu { width: 100%; padding: 0; background-color: #fff; border: 1px solid rgba(0, 0, 0, 0.2); border-top: 0px; }
-.twitter-typeahead .tt-dropdown-menu .tt-suggestion { text-align: left; padding: 3px 20px; font-size: 18px; line-height: 24px; }
-.twitter-typeahead .tt-dropdown-menu .tt-suggestion.tt-cursor { color: #fff; background-color: #0097cf; }
-.twitter-typeahead .tt-dropdown-menu .tt-suggestion em { font-weight: bold; font-style: normal; }
-
-
 // ICI C'EST LA ZONE IMPORTANTE
 $font-family: 'Lato', sans-serif;
-$btn-primary-bg: #f8f7f3;
+$btn-primary-bg: #9b9b98;
 
 $input-color: #666;
 $input-bg: white;
-$input-border-radius: 10px;
-$input-border: #666;
+$input-border-radius: 0px;
+$input-border: #f8f7f3;
 $input-color-placeholder: lightgrey;
 
 
@@ -28,17 +18,50 @@ $input-color-placeholder: lightgrey;
 
 
 // Import my SCSS
+@import "algolia";
 @import "navbar";
 @import "home";
 @import "footer";
+@import "contact";
 
 body {
-  padding-top: 40px;
-  background-color: #f8f7f3;
   font-family: 'lato', sans-serif;
-  letter-spacing: 2px;
+  background-color: #f8f7f3;
   color: #666;
+  font-size: 1em;
+  line-height: 1,5;
+  padding-top: 40px;
   letter-spacing: 2px;
-
-
+  height: 100%;
+  display: block;
+  font-weight: 200;
 }
+
+h1{
+  font-weight: 400;
+}
+
+h2{
+  font-weight: 300;
+}
+
+p{
+  font-weight: 300;
+}
+
+.input {
+width: 100%;
+display: block;
+height: 2.25em;
+padding: 0.75em;
+margin-bottom: 1.5em;
+border: 0 none;
+border-top: 1px dotted #bcb9af;
+line-height: normal;
+text-transform: none;
+text-indent: 0px;
+text-shadow: none;
+}
+
+
+

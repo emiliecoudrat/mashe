@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+    get 'home/contact'
     resources :adverts
 
   ActiveAdmin.routes(self)

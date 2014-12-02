@@ -1,9 +1,9 @@
 // Set your navbar general settings
 $color: black;
-$bg: #dcdcd0;
-$height: 40px;
+$bg: #f8f7f3;
+$height: 50px;
 $vertical-padding: 10px;
-$horizontal-padding: 50px;
+$horizontal-padding: 10px;
 $border-bottom-width: 0;
 $border-bottom-color: grey;
 
@@ -103,7 +103,7 @@ $btn-margin-top: ($height + 2 * $vertical-padding - $btn-height - $btn-top-borde
 }
 
 #logo{
-  height: $height;
+  height: 60px;
   padding: 0px;
 }
 
