@@ -15,4 +15,14 @@
 //= require turbolinks
 //= require cocoon
 //= require bootstrap-sprockets
+//= require chosen-jquery
+
 //= require_tree .
+
+$(document).ready(function() {
+  $('.add_fields').click(function() {
+    setTimeout(function() {
+      $(".chosen").chosen();
+    }, 1);
+  });
+});
