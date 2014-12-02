@@ -1,0 +1,15 @@
+fr:
+  activerecord:
+    attributes:
+      advert:
+        title: Titre de votre annonce
+        transaction_type: Opportunité de type
+  adverts:
+    categories:
+      classroom: classe
+      game: jeux
+    transaction_types:
+      sell: Je vends
+      lend: Je prête
+      give: Je donne
+      recommend: Je recommande
