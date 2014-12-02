@@ -2,7 +2,7 @@ class School < ActiveRecord::Base
 
   has_many :levels, dependent: :destroy
   has_many :camps, through: :levels
-  has_many :adverts
+  has_many :adverts, dependent: :destroy
   has_many :events
   has_many :kids, through: :camps
   has_many :parents, through: :kids
