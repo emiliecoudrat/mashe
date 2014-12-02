@@ -42,9 +42,13 @@
     <div class="container">
       <% @adverts.each do |advert| %>
         <div class="row well">
+
           <div class="col-sm-3">
-            <%= advert.categorie %>
+            <% advert.category_list.each do |category| %>
+              <%= category %>
+            <% end %>
           </div>
+
           <div class="col-sm-3">
             <%= advert.transaction_type %>
           </div>
@@ -55,19 +59,19 @@
             <%= advert.price_cents %>
           </div>
           <div class="col-sm-1">
-            <%= link_to 'Voir le détail', advert %>
+            <%= link_to 'Voir le détail', school_advert_path(@school, advert) %>
           </div>
         </div>
       <% end %>
 
         <div class="row">
           <div class="col-sm-3">
-            <%= link_to 'Publiez une annonce', new_advert_path %>
+            <%= link_to 'Publiez une annonce', new_school_advert_path %>
           </div>
         </div>
         <div class="row">
           <div class="col-sm-3">
-            <%= link_to 'Retour', new_advert_path %>
+            <%= link_to 'Retour', new_school_advert_path %>
           </div>
         </div>
     </div>
