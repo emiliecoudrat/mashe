@@ -7,4 +7,8 @@ class HomeController < ApplicationController
       redirect_to school
     end
   end
+
+  def contact
+  end
+
 end
