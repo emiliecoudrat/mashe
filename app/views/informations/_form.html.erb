@@ -1,0 +1,16 @@
+<%= bootstrap_form_for([@camp, @information]) do |f| %>
+
+  <% Information::CATEGORIES.each do |category| %>
+    <div class="checkbox">
+      <label>
+        <%= check_box_tag "information[category_list][]", category, @information.category_list.include?(category), class: "checkbox" %>
+        <%= t "informations.categories.#{category}" %>
+      </label>
+    </div>
+  <% end %>
+
+  <%= f.text_field :name %>
+  <%= f.text_area :content, label: "DESCRIPTION", placeholder: "" %>
+  <%= f.number_field :end_date, label: "VOTRE PRIX", placeholder:"" %>
+  <%= f.submit "Publiez votre message", class: "btn btn-primary" %>
+<% end %>
