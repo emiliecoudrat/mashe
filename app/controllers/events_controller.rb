@@ -50,6 +50,6 @@ private
   end
 
   def event_params
-    params.require(:event).permit(:name, :description, :starts_at, :ends_at, guest_attributes: [:id, :_destroy])
+    params.require(:event).permit(:name, :description, :starts_at, :ends_at, guests_attributes: [:parent_id, :_destroy])
   end
 end

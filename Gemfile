@@ -74,3 +74,6 @@ gem "algoliasearch-rails"
 gem 'cocoon'
 
 gem "letter_opener", group: :development
+
+gem 'mandrill-api'
+
