@@ -3,7 +3,7 @@ $(document).ready(function() {
   var algolia = new AlgoliaSearch('<%= ENV['ALGOLIA_ID'] %>', '<%= ENV['ALGOLIA_API_KEY'] %>');
   // replace YourIndexName by the name of the index you want to query.
   // var index = algolia.initIndex('School');
-  var index = algolia.initIndex('School<%=ENV['ALGOLIA_SUFFIX']%>');
+  var index = algolia.initIndex('School<%= ENV['ALGOLIA_SUFFIX'] %>');
 
   // typeahead.js initialization
   $('#query').typeahead({ hint: false }, {
