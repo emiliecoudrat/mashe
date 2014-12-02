@@ -1,2 +1,19 @@
-<h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h1><strong><%= @event.name %></strong></h1>
+        <br>
+        <br>
+        <br>
+        <p> <%= @event.description %></p>
+        <p> <%= @event.starts_at %></p>
+        <p> <%= @event.ends_at %></p>
+        <br>
+        <div class="all-events"><%= link_to "Retour à votre liste d'événements", school_events_path(@school, @event) %> </div>
+        <br>
+        <div class="new-event"><%= link_to 'Ajouter un nouvel Evenement', new_school_event_path(@school) %></div>
+        <br>
+        <br>
+    </div>
+  </div>
+</div>

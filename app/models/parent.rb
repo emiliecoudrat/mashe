@@ -15,4 +15,8 @@ class Parent < ActiveRecord::Base
   def display_name
     "#{title} #{first_name} #{last_name}"
   end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
