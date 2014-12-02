@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'profiles/show'
+
   get 'home/contact'
 
   mount RailsAdmin::Engine => '/admin_2', as: 'rails_admin'
