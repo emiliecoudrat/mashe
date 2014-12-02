@@ -1,14 +1,14 @@
 class GuestMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "share.school1@gmail.com"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
   #   en.guest_mailer.invitation.subject
   #
-  def invitation
-    @greeting = "Hi"
+  def invitation(guest)
 
-    mail to: "to@example.org"
+    @parent = guest.parent
+    mail(to: @parent.email, subject: "Invitation événement")
   end
 end
