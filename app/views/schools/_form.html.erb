@@ -11,6 +11,6 @@
     </div>
   </div>
   <%= f.text_field :country, label: "Pays", placeholder: "France" %>
-  <%= f.select :status, [["Public", 1],["Privé", 2]], {label: "Votre école est-elle un établissement public ou privé?"} %>
+  <%= f.select :status, [["Public", 1],["Private", 2]], {label: "Votre école est-elle un établissement public ou privé?"} %>
   <%= f.submit "Créez votre école", class: "btn btn-primary" %>
 <% end %>

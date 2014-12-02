@@ -5,7 +5,7 @@ PARENTS = 100
 SCHOOLS = 5
 # 8 levels
 CAMPS_PER_LEVEL = 2
-KIDS_PER_CAMP = 20
+KIDS_PER_CAMP = 25
 ADVERTS_PER_PARENT = 2
 
 # Destroy old seeds when new faker seeds
@@ -72,7 +72,7 @@ schools = []
 
         # Create 20 kids / camp
         KIDS_PER_CAMP.times do |l|
-          kid = Kid.create! ({
+          kid = Kid.create({
             first_name: Faker::Name.first_name,
             last_name: Faker::Name.last_name,
             birthdate: Faker::Date.backward(14),
@@ -80,18 +80,23 @@ schools = []
           })
           puts "[KID #{l}] #{kid.first_name} #{kid.last_name}"
 
-          if (0...100).to_a.sample <= 80
-            mother = parents.sample
-            mother.parentships.create(kid: kid, status: 'mother')
+          while kid.parentships.count == 0
+            if (0...100).to_a.sample <= 80
+              mother = parents.sample
+              mother.parentships.create(kid: kid, status: 'mother')
+            end
+
+            if (0...100).to_a.sample <= 60
+              father = parents.sample
+              father.parentships.create(kid: kid, status: 'father')
+            end
+
+            if (0...100).to_a.sample <= 30
+              other = parents.sample
+              other.parentships.create(kid: kid, status: 'other')
+            end
           end
-          if (0...100).to_a.sample <= 60
-            father = parents.sample
-            father.parentships.create(kid: kid, status: 'father')
-          end
-          if (0...100).to_a.sample <= 30
-            other = parents.sample
-            other.parentships.create(kid: kid, status: 'other')
-          end
+
           camp.scholarships.create(kid: kid)
           end
       end
@@ -99,8 +104,34 @@ schools = []
   end
 end
 
-5.times do
-  school = School.all.sample
-  parent = school.kids.first.parents.first
-  Advert.create(school_id: school.id, parent_id: parent.id)
-end
+   50.times do
+    school = School.all.sample
+    camp = school.camps.sample
+    kid = camp.kids.sample
+    parent = kid.parents.sample
+    published = [true, false].sample
+    sold = [true, false].sample
+    categorie = [ 'classe', 'jeux', 'fête', 'garde', 'bébé', 'urgence', 'anglais', 'maison', 'zen', 'bons_plans'].sample
+    transaction_type = [ 'je vends', 'je prête', 'je donne', 'je propose'].sample
+    advert = Advert.create({
+      school_id: school.id,
+      parent_id: parent.id,
+      price_cents: Faker::Commerce.price,
+      title: Faker::Commerce.product_name,
+      description: Faker::Lorem.sentence,
+      categorie: categorie,
+      transaction_type:transaction_type,
+      published: published,
+      sold: sold
+      })
+    puts "[ADVERT #{advert.categorie}] #{advert.title}"
+   end
+
+
+
+
+
+
+
+
+
