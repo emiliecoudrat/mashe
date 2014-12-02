@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
+  get 'home/contact'
 
-    get 'home/contact'
-    resources :adverts
+  mount RailsAdmin::Engine => '/admin_2', as: 'rails_admin'
+
+  resources :adverts
 
   ActiveAdmin.routes(self)
 
