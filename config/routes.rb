@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'home/contact'
+  get 'dashboard', to: 'dashboard#home'
 
   mount RailsAdmin::Engine => '/admin_2', as: 'rails_admin'
 
