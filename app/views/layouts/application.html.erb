@@ -8,7 +8,7 @@
     <title>
       <%= content_for?(:title) ? yield(:title) : "Ma Share-Ecole" %>
     </title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
 
     <%= csrf_meta_tags %>
   </head>
@@ -16,6 +16,7 @@
 
     <%= render 'layouts/navbar' %>
 
+    <div class="wrapper">
     <% if notice %>
       <p class="notice"><%= notice %></p>
     <% end %>
@@ -26,7 +27,7 @@
     <div class="vertical_space"> </div>
 
     <%= yield %>
-
+  </div>
     <%= render 'layouts/footer' %>
     <%= javascript_include_tag 'application' %>
     <!-- Typahead.js is used to display the auto-completion menu -->
