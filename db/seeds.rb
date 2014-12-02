@@ -6,7 +6,6 @@ SCHOOLS = 5
 # 8 levels
 CAMPS_PER_LEVEL = 2
 KIDS_PER_CAMP = 25
-ADVERTS_PER_PARENT = 2
 
 # Destroy old seeds when new faker seeds
 School.destroy_all
