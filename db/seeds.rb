@@ -44,7 +44,7 @@ schools = []
       city: Faker::Address.city,
       zipcode: Faker::Address.zip_code,
       country:Faker::Address.country,
-      validation: [true, false].sample
+      validation: [true, false].sample,
       status:["public", "private"].sample
     })
       puts "[SCHOOL #{i}] #{school.name}"
