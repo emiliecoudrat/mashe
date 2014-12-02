@@ -61,10 +61,44 @@
   color: #666;
   font-family:'lato', sans-serif;
   letter-spacing: 2px;
-  font-size: 30px;
   line-height: 2em;
   font-weight: 100;
 }
+
+
+.vertical_spacer{
+height: 5em;
+}
+
+.text-align{
+text-align: justify;
+}
+
+.mode_emploi p {
+font-size:14px;
+}
+
+.respect p {
+font-size:12px;
+}
+
+h3{
+  font-size:30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: 2px;
+  box-sizing: border-box;
+  }
+
+
+  p{
+  font-size:12px;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: 2px;
+  }
 
 .pictos {
   position: relative;
@@ -78,4 +112,21 @@
     border-radius: 0%;
     padding: 20px;
   }
-}
+   }
+
+.see_adverts h3{
+  background: white;
+  display:inline-block;
+  font-size: 18px;
+  font-weight: 200;
+  letter-spacing: 2px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+  border-color: lightgrey;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width: 400px;
+  }

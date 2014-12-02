@@ -9,9 +9,10 @@
 <div class="backgroundSearch text-center">
   <div class="container">
     <div class="row">
-      <p>Je trouve mon école</p>
-      <div class="col-xs-10 col-sm-6 col-md-6 col-lg-4 col-xs-offset-1 col-sm-offset-3 col-md-offset-3 col-lg-offset-4">
-        <%= form_tag "/", method: :get, class: "form-inline" do %>
+       <div class="col-xs-12  text-center">
+          <p>Je trouve mon école</p>
+        <div class="col-xs-10 col-sm-6 col-md-6 col-lg-4 col-xs-offset-1 col-sm-offset-3 col-md-offset-3 col-lg-offset-4">
+          <%= form_tag "/", method: :get, class: "form-inline" do %>
           <div class="form-group">
             <input type="text" class="form-control" id="query" name="school_address">
           </div>
@@ -19,6 +20,7 @@
         <% end %><!-- /input-group -->
       </div><!-- /.col-lg-6 -->
     </div><!-- /.row -->
+
     <div class="row">
       <p id="add_new_school">Je n'ai pas trouvé mon école...</p>
       <!-- Indicates a successful or positive action -->
@@ -29,58 +31,82 @@
   </div>
 </div>
 
-<div class="container pictos">
+<div class="vertical_spacer"></div>
+<div class="container text-center">
+
+  <div class="row ">
+
+    <div class="col-xs-12"></div>
+      <h3>Mode d'emploi</h3>
+      <br>
+      <div class="vertical_spacer"></div>
+    </div>
+      <div class="row ">
+    <div class="col-xs-12  text-align mode_emploi">
+        <p><strong>MA SHARE ECOLE </strong>est un modèle de <strong>consommation collaborative</strong> organisée autour des micros quartiers que constituent les <strong>écoles élémentaires</strong>, là où les parents se croisent chaque jour <strong>en déposant leurs enfants</strong>. Ma SHARE ECOLE permet aux parents d'<strong>entrer en relation</strong>, de suivre le fil de l'activité des enfants, de gagner du temps dans l'<strong>organisation des évènements</strong> et de <strong>solutionner facilement les situations d'urgence!</strong></p>
+    </div>
+    <div class="pictos">
+      <div class="col-xs-4 col-md-4 text-center">
+        <%= image_tag "messharecontacts.png" %>
+      </div>
+      <div class="col-xs-4 col-md-4 text-center">
+        <%= image_tag "mashareclasse.png" %>
+      </div>
+      <div class="col-xs-4 col-md-4 text-center">
+        <%= image_tag "mashareurgence.png" %>
+      </div>
+</div>
+
+  <div class="container">
+    <div class="row">`
+      <div class="col-xs-12 col-md-12 text-align mode_emploi">
+        <p>MA SHARE ECOLE permet également de s'entraider, d'<strong>échanger des biens et des services </strong>pour <strong>mieux consommer</strong> et <strong>faire des économies tout au long de l'année</strong>. Nous empruntons tous le même chemin à la même heure pour déposer les enfants à l’école, alors autant en profiter pour se remettre en main propre les objets ou approfondir nos projets.</p>
+      </div>
+
+    <div class="row">`
+      <div class="pictos">
+      <div class="col-xs-4 col-md-4 text-center">
+        <%= image_tag "masharetirelire.png" %>
+      </div>
+      <div class="col-xs-4 col-md-4 text-center">
+        <%= image_tag "masharefete.png" %>
+      </div>
+      <div class="col-xs-4 col-md-4 text-center">
+        <%= image_tag "meschareloisirs.png" %>
+      </div>
+      <div class="col-xs-4 col-md-4 text-center">
+        <%= image_tag "masharemaisonzen.png" %>
+      </div>
+      <div class="col-xs-4 col-md-4 text-center">
+        <%= image_tag "monshareantiburnout.png" %>
+      </div>
+      <div class="col-xs-4 col-md-4 text-center">
+        <%= image_tag "messharevacances.png" %>
+      </div>
+      <div class="col-xs-4 col-md-4 text-center">
+        <%= image_tag "monshareprofessionnel.png" %>
+      </div>
+      <div class="col-xs-4 col-md-4 text-center">
+        <%= image_tag "monshareanglais.png" %>
+      </div>
+      <div class="col-xs-4 col-md-4 text-center">
+        <%= image_tag "monsharequartier.png" %>
+      </div>
+    </div>
+  </div>
 
   <div class="row">
-    <div class="col-xs-12  text-center">
-      <p>Mode d'emploi</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-6 col-md-3 text-center">
-      <%= image_tag "messharecontacts.png" %>
-    </div>
-    <div class="col-xs-6 col-md-3 text-center">
-      <%= image_tag "mashareclasse.png" %>
-    </div>
-    <div class="col-xs-6 col-md-3 text-center">
-      <%= image_tag "mashareurgence.png" %>
-    </div>
-    <div class="col-xs-6 col-md-3 text-center">
-      <%= image_tag "masharetirelire.png" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-6 col-md-3 text-center">
-      <%= image_tag "meschareloisirs.png" %>
-    </div>
-    <div class="col-xs-6 col-md-3 text-center">
-      <%= image_tag "masharefete.png" %>
-    </div>
-    <div class="col-xs-6 col-md-3 text-center">
-      <%= image_tag "monshareantiburnout.png" %>
-    </div>
-    <div class="col-xs-6 col-md-3 text-center">
-      <%= image_tag "masharemaisonzen.png" %>
-    </div>
-    </div>
-    <div class="row">
-    <div class="col-xs-6 col-md-3 text-center">
-      <%= image_tag "monshareprofessionnel.png" %>
-    </div>
-    <div class="col-xs-6 col-md-3 text-center">
-      <%= image_tag "monshareanglais.png" %>
-    </div>
-    <div class="col-xs-6 col-md-3 text-center">
-      <%= image_tag "monsharequartier.png" %>
-    </div>
-    <div class="col-xs-6 col-md-3 text-center">
-      <%= image_tag "monsharereve.png" %>
-    </div>
-    <div class="row">
-    <div class="col-xs-12  text-center">
-      <p>Voir les share annonces</p>
-    </div>
+    <div class="col-xs-12  text-center ">
+       <div class="see_adverts">
+          <h3>Voir les shares annonces</h3>
+      </div>
   </div>
   </div>
+
+ <div class="row">
+    <div class="col-xs-12 text-center respect">
+    <p> <strong>MA SHARE ECOLE met particulièrement l’accent sur le <strong>respect de la vie privée</strong>, chaque école et chaque classe ayant un code confidentiel et chaque parent pouvant gérer son niveau de visibilité : au niveau des parents de la classe, d'un niveau de classe ou de l'école.</strong></p>
+  </div>
+</div>
+</div>
 </div>
