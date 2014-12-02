@@ -9,6 +9,7 @@ KIDS_PER_CAMP = 25
 
 # Destroy old seeds when new faker seeds
 School.destroy_all
+School.clear_index!
 Parent.destroy_all
 Kid.destroy_all
 
@@ -29,7 +30,7 @@ PARENTS.times do |i|
     email: Faker::Internet.free_email,
     password: Faker::Code.ean
   })
-  parents << parent
+  parents << parent if parent.persisted?
   puts "[PARENT #{i}] Creating parent #{parent.first_name} #{parent.last_name}"
 end
 
@@ -101,32 +102,27 @@ schools = []
       end
     end
   end
+
+  50.times do |i|
+   camp = school.camps.sample
+   kid = camp.kids.sample
+   parent = kid.parents.sample
+   published = [true, false].sample
+   sold = [true, false].sample
+   advert = Advert.create({
+     school_id: school.id,
+     parent_id: parent.id,
+     price_cents: Faker::Commerce.price,
+     title: Faker::Commerce.product_name,
+     description: Faker::Lorem.sentence,
+     category_list: Advert::CATEGORIES.sample([1, 2, 3].sample),
+     transaction_type: Advert::TRANSACTION_TYPES.sample,
+     published: published,
+     sold: sold
+     })
+   puts "[ADVERT #{i}] #{advert.title}"
+  end
 end
-
-   50.times do
-    school = School.all.sample
-    camp = school.camps.sample
-    kid = camp.kids.sample
-    parent = kid.parents.sample
-    published = [true, false].sample
-    sold = [true, false].sample
-    categorie = [ 'classe', 'jeux', 'fête', 'garde', 'bébé', 'urgence', 'anglais', 'maison', 'zen', 'bons_plans'].sample
-    transaction_type = [ 'je vends', 'je prête', 'je donne', 'je propose'].sample
-    advert = Advert.create({
-      school_id: school.id,
-      parent_id: parent.id,
-      price_cents: Faker::Commerce.price,
-      title: Faker::Commerce.product_name,
-      description: Faker::Lorem.sentence,
-      categorie: categorie,
-      transaction_type:transaction_type,
-      published: published,
-      sold: sold
-      })
-    puts "[ADVERT #{advert.categorie}] #{advert.title}"
-   end
-
-
 
 
 
