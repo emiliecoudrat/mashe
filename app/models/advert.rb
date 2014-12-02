@@ -1,6 +1,6 @@
 class Advert < ActiveRecord::Base
   # 'classe', 'jeux', 'fête', 'garde', 'bébé', 'urgence', 'anglais', 'maison', 'zen', 'bons_plans'
-  CATEGORIES = [ 'classroom', 'game' ]
+  CATEGORIES = [ 'classroom', 'game', 'party', 'babysitting', 'baby', 'emergency', 'english', 'home', 'zen', 'block']
   TRANSACTION_TYPES = [ 'sell', 'lend', 'give', 'recommend' ]
   belongs_to :parent
   belongs_to :school

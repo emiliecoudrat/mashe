@@ -2,12 +2,20 @@ fr:
   activerecord:
     attributes:
       advert:
-        title: Titre de votre annonce
-        transaction_type: Opportunité de type
+        title: TITRE DE VOTRE ANNONCE
+        transaction_type: OPPORTUNITES DE TYPE
   adverts:
     categories:
       classroom: classe
-      game: jeux
+      game: jeux et loisirs
+      party: fête
+      babysitting: garde d'enfants
+      baby: bébé
+      emergency: urgence
+      english: anglais
+      home: maison
+      zen: zen
+      block: bons plans
     transaction_types:
       sell: Je vends
       lend: Je prête
