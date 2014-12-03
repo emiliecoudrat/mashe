@@ -9,6 +9,7 @@ class Advert < ActiveRecord::Base
   monetize :price_cents
 
   acts_as_taggable_on :categories
+  accepts_nested_attributes_for :advertpictures, allow_destroy: true
 
   validates_presence_of :title, :description, :transaction_type, :price_cents, :school
   validates_inclusion_of :transaction_type, in: TRANSACTION_TYPES

@@ -1,13 +1,15 @@
 <%= bootstrap_form_for([@school, @advert], html: { multipart: true }) do |f| %>
   <div> <strong>THEME</strong> </div>
+  <div class="form-group">
   <% Advert::CATEGORIES.each do |category| %>
     <div class="checkbox">
       <label>
-        <%= check_box_tag "advert[category_list][]", category, @advert.category_list.include?(category), class: "checkbox" %>
+        <%= check_box_tag "advert[category_list][]", category, @advert.category_list.include?(category) %>
         <%= t "adverts.categories.#{category}" %>
       </label>
     </div>
   <% end %>
+  </div>
 
   <%= f.select :transaction_type, Advert::TRANSACTION_TYPES.map { |type| [ t("adverts.transaction_types.#{type}"), type] } %>
   <%= f.text_field :title %>
@@ -19,19 +21,6 @@
       <%= picture.file_field :picture %>
     </div>
   <% end %>
-
-  <%= f.fields_for :advertpictures do |picture| %>
-    <div class="field form-group">
-      <%= picture.file_field :picture %>
-    </div>
-  <% end %>
-
-  <%= f.fields_for :advertpictures do |picture| %>
-    <div class="field form-group">
-      <%= picture.file_field :picture %>
-    </div>
-  <% end %>
-
 
   <%= f.submit "Vérifier votre annonce", class: "btn btn-primary" %>
 <% end %>

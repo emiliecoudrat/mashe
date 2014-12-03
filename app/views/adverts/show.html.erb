@@ -9,7 +9,6 @@
       <div class="col-xs-12 col-sm-12">
         <h1> Share annonce <%= "#{@advert.title}"%> </h1>
         <div>Tags: <%= @advert.category_list.join(", ") %></div>
-        <div>Tags: <%= @advert.category_list.join(", ") %></div>
       </div>
     </div>
 
@@ -28,13 +27,20 @@
         <div class="description">
           <span> Description : <%= "#{@advert.description}"%> </span>
         </div>
+
+      <div class="col-xs-6 col-sm-4">
+        <% @advert.advertpictures.each do |advert_picture| %>
+          <%= image_tag(advert_picture.picture(:thumb)) %>
+        <% end %>
+      </div>
+
         <div class="updated_at">
         <span> Mise à jour le : <%= "#{@advert.updated_at}"%> </span>
       </div>
       </div>
 
       <div class="col-xs-6 col-sm-4">
-        <div> <%= image_tag @advertpicture.picture.url(:medium) %> </div>
+        <div> IMAGE > </div>
       </div>
 
 
