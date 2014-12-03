@@ -1,4 +1,4 @@
-<%= bootstrap_form_for([@school, @advert]) do |f| %>
+<%= bootstrap_form_for([@school, @advert], html: { multipart: true }) do |f| %>
   <div> <strong>THEME</strong> </div>
   <% Advert::CATEGORIES.each do |category| %>
     <div class="checkbox">
@@ -13,6 +13,8 @@
   <%= f.text_field :title %>
   <%= f.text_area :description, label: "DESCRIPTION", placeholder: "" %>
   <%= f.number_field :price_cents, label: "VOTRE PRIX", placeholder:"" %>
+  <%= f.label :picture %>
+  <%= f.text_field :picture %>
   <%= f.submit "Vérifier votre annonce", class: "btn btn-primary" %>
 <% end %>
 

@@ -12,6 +12,12 @@ class Advert < ActiveRecord::Base
   validates_presence_of :title, :description, :transaction_type, :price_cents, :school
   validates_inclusion_of :transaction_type, in: TRANSACTION_TYPES
 
+  has_attached_file :picture,
+    styles: { medium: "300x300>", thumb: "100x100>" }
+
+  validates_attachment_content_type :picture,
+    content_type: /\Aimage\/.*\z/
+
   def display_name
     "#{self.title} - #{self.transaction_type} - #{self.school.name}"
   end

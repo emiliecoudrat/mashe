@@ -50,7 +50,8 @@ gem 'jbuilder'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 
-
+gem 'aws-sdk'
+gem 'paperclip'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
