@@ -1,2 +1,23 @@
-<h1>Informations#index</h1>
-<p>Find me in app/views/informations/index.html.erb</p>
+<h1>
+  <div class="text-center">
+    L'actu de la classe de votre enfant
+  </div>
+</h1>
+
+  <div class="container">
+    <% @informations.each do |information| %>
+      <div class="row well">
+        <div class="col-sm-3">
+          <%= information.name%> <%= information.name %>
+        </div>
+      <div class="col-sm-1">
+          <%= information.end_date%> <%= information.end_date %>
+      </div>
+      <div class="col-sm-7">
+        <%= information.content%> <%= information.content %>
+      </div>
+      <div class="col-sm-1">
+        <%= information.created_at%> <%= information.created.at%>
+      </div>
+    <% end %>
+  </div>

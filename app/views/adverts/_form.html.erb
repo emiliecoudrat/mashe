@@ -1,9 +1,20 @@
-<%= bootstrap_form_for(@advert) do |f| %>
-    <%= f.text_field :categorie, label: "THEME", placeholder:""%>
-     <%= f.text_field :transaction_type, label:"OPPORTUNITES DE TYPE" , placeholder:"" %>
-    <%= f.text_field :title, label: "TITRE DE VOTRE ANNONCE", placeholder: ""%>
-    <%= f.text_area :description, label: "DESCRIPTION", placeholder: "" %>
-    <%= f.number_field :price_cents, label: "VOTRE PRIX", placeholder:"" %>
-    <%= f.submit "Publiez votre annonce", class: "btn btn-primary"%>
+<%= bootstrap_form_for([@school, @advert]) do |f| %>
+  <div> <strong>THEME</strong> </div>
+  <% Advert::CATEGORIES.each do |category| %>
+    <div class="checkbox">
+      <label>
+        <%= check_box_tag "advert[category_list][]", category, @advert.category_list.include?(category), class: "checkbox" %>
+        <%= t "adverts.categories.#{category}" %>
+      </label>
+    </div>
+  <% end %>
+
+  <%= f.select :transaction_type, Advert::TRANSACTION_TYPES.map { |type| [ t("adverts.transaction_types.#{type}"), type] } %>
+  <%= f.text_field :title %>
+  <%= f.text_area :description, label: "DESCRIPTION", placeholder: "" %>
+  <%= f.number_field :price_cents, label: "VOTRE PRIX", placeholder:"" %>
+  <%= f.submit "Vérifier votre annonce", class: "btn btn-primary" %>
 <% end %>
 
+edit_school_advert_path
+<%= link_to 'Retour', school_adverts_path(@school),class: "btn btn-primary" %>

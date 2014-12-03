@@ -1,2 +1,77 @@
-<h1>Informations#show</h1>
-<p>Find me in app/views/informations/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <% content_for(:name) do %>
+      <%= "#{@information.name}" %>
+      <% end %>
+    </div>
+  </div>
+ </div>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-xs-12">
+       <h1> Share information  </h1>
+       <h2> <%= "#{@information.name}"%> </h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="name">
+        <span> NAME : <%= "#{@information.name}"%> </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-7">
+      <div class="content">
+        <span> Description : <%= "#{@information.content}"%> </span>
+      </div>
+    </div>
+  </div>
+
+  <div>Tags: <%= @information.category_list.join(", ") %></div>
+
+  <div class="row">
+    <div class="col-sm-1">
+      <div class="end_date">
+        <span> A faire pour le : <%= "#{@information.created_at}"%> </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-1">
+      <div class="updated_at">
+        <span> Mise à jour le : <%= "#{@information.updated_at}"%> </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-1">
+      <div class="created_at">
+        <span> Publiée le : <%= "#{@information.created_at}"%> </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <%= link_to 'Edit', edit_camp_information_path(@camp, @information), class:"btn-dmc" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+  <%= link_to 'Retour', camp_informations_path(@school) %>
+   </div>
+  </div>
+
+</div>

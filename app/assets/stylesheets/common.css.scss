@@ -1,14 +1,22 @@
+.vertical_space{
+  padding-top: 30px;
+}
+
+.wrapper{
+  padding-top: 3em;
+}
+
 body {
   font-family: 'lato', sans-serif;
   background-color: #f8f7f3;
   color: #666;
-  font-size: 1em;
-  line-height: 1,5;
+  letter-spacing: 2px;
+  font-size: 14px;
+  font-weight: 200;
   padding-top: 40px;
   letter-spacing: 2px;
   height: 100%;
   display: block;
-  font-weight: 200;
 }
 
 h1{

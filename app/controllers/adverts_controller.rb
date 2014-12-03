@@ -1,6 +1,6 @@
 class AdvertsController < InheritedResources::Base
+  before_action :set_school
   before_action :set_advert, only: [:show, :edit, :update, :destroy]
-  skip_before_action :authenticate_parent!
   respond_to :html
 
 
@@ -18,9 +18,10 @@ class AdvertsController < InheritedResources::Base
 
 # rappel : current_parent et non current_user
   def create
-    @advert = current_parent.adverts.new(advert_params)
+    @advert = @school.adverts.new(advert_params)
+    @advert.parent = current_parent
     if @advert.save
-      redirect_to @advert, notice: 'Bravo, votre share annonce a été correctement créée.'
+      redirect_to school_adverts_path, notice: 'Bravo, votre share annonce a été correctement créée.'
     else
       render :new, notice: 'Mince, réessayer svp.'
     end
@@ -31,7 +32,7 @@ class AdvertsController < InheritedResources::Base
 
   def update
     if @advert.update(advert_params)
-      redirect_to @advert, notice: 'Merci, votre share annonce a bien été mise à jour'
+      redirect_to school_advert_path(@school, @advert), notice: 'Merci, votre share annonce a bien été mise à jour'
     else
       render :edit, notice: 'Mince, réessayer svp.'
     end
@@ -46,7 +47,11 @@ class AdvertsController < InheritedResources::Base
 private
 
   def advert_params
-    params.require(:advert).permit(:title, :description, :categorie, :transaction_type, :price_cents)
+    params.require(:advert).permit(:title, :description, :transaction_type, :price_cents, { category_list: [] })
+  end
+
+  def set_school
+    @school = School.find(params[:school_id])
   end
 
   def set_advert

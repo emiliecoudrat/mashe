@@ -1,5 +1,8 @@
 <h1>Petite annonce <%= @advert.title %></h1>
 
 <%= render 'adverts/form' %>
-|
-<%= link_to 'Retour', adverts_path %>
+
+
+<%= link_to 'Afficher', @advert, class: "btn btn-primary" %> |
+<%= link_to 'Retour', school_adverts_path(@school),class: "btn btn-primary" %>
+
