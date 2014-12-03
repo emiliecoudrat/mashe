@@ -19,4 +19,10 @@ class Parent < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def full_name_with_kids_name
+    #TODO: add children names
+    # children = self.kids.map {|x| x.first_name}.join(", ")
+    "#{first_name} #{last_name}"
+  end
 end

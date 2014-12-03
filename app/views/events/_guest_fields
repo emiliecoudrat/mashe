@@ -1,4 +1,4 @@
 <div class="nested-fields">
-  <%= f.collection_select :parent_id, @parents, :id, :full_name, {}, class: 'chosen' %>
+  <%= f.collection_select :parent_id, @parents.includes([:parentships, :kids]), :id, :full_name_with_kids_name, {}, class: 'chosen' %>
   <%= link_to_remove_association "remove guest", f %>
 </div>
