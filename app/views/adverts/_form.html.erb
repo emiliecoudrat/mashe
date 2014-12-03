@@ -14,8 +14,25 @@
   <%= f.text_area :description, label: "DESCRIPTION", placeholder: "" %>
   <%= f.number_field :price_cents, label: "VOTRE PRIX", placeholder:"" %>
 
-  <%= f.label :@advertpicture.picture %>
-  <%= f.text_field :@advertpicture.picture %>
+  <%= f.fields_for :advertpictures do |picture| %>
+    <div class="field form-group">
+      <%= picture.file_field :picture %>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :advertpictures do |picture| %>
+    <div class="field form-group">
+      <%= picture.file_field :picture %>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :advertpictures do |picture| %>
+    <div class="field form-group">
+      <%= picture.file_field :picture %>
+    </div>
+  <% end %>
+
+
   <%= f.submit "Vérifier votre annonce", class: "btn btn-primary" %>
 <% end %>
 

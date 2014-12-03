@@ -5,7 +5,7 @@ class Advert < ActiveRecord::Base
   belongs_to :parent
   belongs_to :school
   has_many :camps, through: :schools
-  has_many :advertpictures
+  has_many :advertpictures, dependent: :destroy
   monetize :price_cents
 
   acts_as_taggable_on :categories
