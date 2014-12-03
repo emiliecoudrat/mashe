@@ -15,21 +15,17 @@
 <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to home_contact_path do %>
-          <i class="fa fa-envelope-o"></i>
-          Contactez-nous
-          <% end %>
-        </li>
         <% if parent_signed_in? %>
-        <li class="sign-out"><%= link_to 'Sign out', destroy_parent_session_path, method: 'delete' %></li>
+        <li> <%= image_tag "http://placehold.it/30x30", id:"profile-pic"%> </li>
+        <li class="sign-out">
+          <%= link_to 'Sign out', destroy_parent_session_path, method: 'delete' %></li>
         <% else %>
         <li class="sign-in"><%= link_to 'Sign in', new_parent_session_path %></li>
         <li class="sign-up"><%= link_to 'Sign up', new_parent_registration_path %></li>
         <% end %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-            <img src="http://placehold.it/30x30" id="profile-pic" alt="">Rejoignez-nous<span class="caret"></span>
+            Rejoignez-nous<span class="caret"></span>
           </a>
           <ul class="dropdown-menu" role="menu">
             <li>
