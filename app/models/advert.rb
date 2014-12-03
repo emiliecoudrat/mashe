@@ -5,18 +5,13 @@ class Advert < ActiveRecord::Base
   belongs_to :parent
   belongs_to :school
   has_many :camps, through: :schools
+  has_many :advertpictures
   monetize :price_cents
 
   acts_as_taggable_on :categories
 
   validates_presence_of :title, :description, :transaction_type, :price_cents, :school
   validates_inclusion_of :transaction_type, in: TRANSACTION_TYPES
-
-  has_attached_file :picture,
-    styles: { medium: "300x300>", thumb: "100x100>" }
-
-  validates_attachment_content_type :picture,
-    content_type: /\Aimage\/.*\z/
 
   def display_name
     "#{self.title} - #{self.transaction_type} - #{self.school.name}"

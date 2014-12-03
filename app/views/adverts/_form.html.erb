@@ -13,8 +13,9 @@
   <%= f.text_field :title %>
   <%= f.text_area :description, label: "DESCRIPTION", placeholder: "" %>
   <%= f.number_field :price_cents, label: "VOTRE PRIX", placeholder:"" %>
-  <%= f.label :picture %>
-  <%= f.text_field :picture %>
+
+  <%= f.label :@advertpicture.picture %>
+  <%= f.text_field :@advertpicture.picture %>
   <%= f.submit "Vérifier votre annonce", class: "btn btn-primary" %>
 <% end %>
 

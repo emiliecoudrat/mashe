@@ -42,10 +42,6 @@ ActiveRecord::Schema.define(version: 20141203133838) do
     t.integer  "school_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
-    t.integer  "picture_file_size"
-    t.datetime "picture_updated_at"
   end
 
   add_index "adverts", ["parent_id"], name: "index_adverts_on_parent_id", using: :btree

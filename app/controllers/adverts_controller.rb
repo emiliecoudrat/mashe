@@ -47,7 +47,7 @@ class AdvertsController < InheritedResources::Base
 private
 
   def advert_params
-    params.require(:advert).permit(:title, :description, :transaction_type, :price_cents, { category_list: [] }, :picture)
+    params.require(:advert).permit(:title, :description, :transaction_type, :price_cents, { category_list: [] }, :picture_id)
   end
 
   def set_school
