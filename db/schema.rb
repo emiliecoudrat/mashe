@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141202165252) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
     t.text     "body"
@@ -24,9 +27,9 @@ ActiveRecord::Schema.define(version: 20141202165252) do
     t.datetime "updated_at"
   end
 
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "adverts", force: true do |t|
     t.string   "title"
@@ -41,8 +44,8 @@ ActiveRecord::Schema.define(version: 20141202165252) do
     t.datetime "updated_at"
   end
 
-  add_index "adverts", ["parent_id"], name: "index_adverts_on_parent_id"
-  add_index "adverts", ["school_id"], name: "index_adverts_on_school_id"
+  add_index "adverts", ["parent_id"], name: "index_adverts_on_parent_id", using: :btree
+  add_index "adverts", ["school_id"], name: "index_adverts_on_school_id", using: :btree
 
   create_table "camps", force: true do |t|
     t.string   "name"
@@ -54,8 +57,8 @@ ActiveRecord::Schema.define(version: 20141202165252) do
     t.string   "year"
   end
 
-  add_index "camps", ["level_id"], name: "index_camps_on_level_id"
-  add_index "camps", ["school_id"], name: "index_camps_on_school_id"
+  add_index "camps", ["level_id"], name: "index_camps_on_level_id", using: :btree
+  add_index "camps", ["school_id"], name: "index_camps_on_school_id", using: :btree
 
   create_table "events", force: true do |t|
     t.integer  "parent_id"
@@ -68,8 +71,8 @@ ActiveRecord::Schema.define(version: 20141202165252) do
     t.integer  "school_id"
   end
 
-  add_index "events", ["parent_id"], name: "index_events_on_parent_id"
-  add_index "events", ["school_id"], name: "index_events_on_school_id"
+  add_index "events", ["parent_id"], name: "index_events_on_parent_id", using: :btree
+  add_index "events", ["school_id"], name: "index_events_on_school_id", using: :btree
 
   create_table "guests", force: true do |t|
     t.integer  "event_id"
@@ -78,8 +81,8 @@ ActiveRecord::Schema.define(version: 20141202165252) do
     t.datetime "updated_at"
   end
 
-  add_index "guests", ["event_id"], name: "index_guests_on_event_id"
-  add_index "guests", ["parent_id"], name: "index_guests_on_parent_id"
+  add_index "guests", ["event_id"], name: "index_guests_on_event_id", using: :btree
+  add_index "guests", ["parent_id"], name: "index_guests_on_parent_id", using: :btree
 
   create_table "informations", force: true do |t|
     t.string   "name"
@@ -91,8 +94,8 @@ ActiveRecord::Schema.define(version: 20141202165252) do
     t.datetime "updated_at"
   end
 
-  add_index "informations", ["camp_id"], name: "index_informations_on_camp_id"
-  add_index "informations", ["parent_id"], name: "index_informations_on_parent_id"
+  add_index "informations", ["camp_id"], name: "index_informations_on_camp_id", using: :btree
+  add_index "informations", ["parent_id"], name: "index_informations_on_parent_id", using: :btree
 
   create_table "kids", force: true do |t|
     t.string   "first_name"
@@ -110,7 +113,7 @@ ActiveRecord::Schema.define(version: 20141202165252) do
     t.datetime "updated_at"
   end
 
-  add_index "levels", ["school_id"], name: "index_levels_on_school_id"
+  add_index "levels", ["school_id"], name: "index_levels_on_school_id", using: :btree
 
   create_table "parents", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -132,8 +135,8 @@ ActiveRecord::Schema.define(version: 20141202165252) do
     t.string   "phone_number"
   end
 
-  add_index "parents", ["email"], name: "index_parents_on_email", unique: true
-  add_index "parents", ["reset_password_token"], name: "index_parents_on_reset_password_token", unique: true
+  add_index "parents", ["email"], name: "index_parents_on_email", unique: true, using: :btree
+  add_index "parents", ["reset_password_token"], name: "index_parents_on_reset_password_token", unique: true, using: :btree
 
   create_table "parentships", force: true do |t|
     t.integer  "kid_id"
@@ -143,8 +146,8 @@ ActiveRecord::Schema.define(version: 20141202165252) do
     t.string   "status"
   end
 
-  add_index "parentships", ["kid_id"], name: "index_parentships_on_kid_id"
-  add_index "parentships", ["parent_id"], name: "index_parentships_on_parent_id"
+  add_index "parentships", ["kid_id"], name: "index_parentships_on_kid_id", using: :btree
+  add_index "parentships", ["parent_id"], name: "index_parentships_on_parent_id", using: :btree
 
   create_table "scholarships", force: true do |t|
     t.integer  "camp_id"
@@ -153,8 +156,8 @@ ActiveRecord::Schema.define(version: 20141202165252) do
     t.datetime "updated_at"
   end
 
-  add_index "scholarships", ["camp_id"], name: "index_scholarships_on_camp_id"
-  add_index "scholarships", ["kid_id"], name: "index_scholarships_on_kid_id"
+  add_index "scholarships", ["camp_id"], name: "index_scholarships_on_camp_id", using: :btree
+  add_index "scholarships", ["kid_id"], name: "index_scholarships_on_kid_id", using: :btree
 
   create_table "schools", force: true do |t|
     t.string   "name"
@@ -178,14 +181,14 @@ ActiveRecord::Schema.define(version: 20141202165252) do
     t.datetime "created_at"
   end
 
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
   create_table "tags", force: true do |t|
     t.string  "name"
     t.integer "taggings_count", default: 0
   end
 
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
 end
