@@ -15,12 +15,6 @@
 <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li>
-          <%= link_to home_contact_path do %>
-          <i class="fa fa-envelope-o"></i>
-          Contactez-nous
-          <% end %>
-        </li>
         <% if parent_signed_in? %>
         <li class="sign-out"><%= link_to 'Sign out', destroy_parent_session_path, method: 'delete' %></li>
         <% else %>
