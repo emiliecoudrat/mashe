@@ -1,7 +1,28 @@
-
-<br>
-<br>
-<br>
-<h1>Mon Tableau de bord</h1>
-
-<p>Find me in app/views/dashboard/home.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="list-title page-header">
+      <div class="text-center">
+        <h1>Mon Share Dashboard</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+    <div class="list-title page-header">
+      <div class="text-center">
+        <h2>Aujourd'hui</h2>
+        <%= @today.to_s %>
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="list-title page-header">
+      <div class="text-center">
+        <h2>Vos enfants</h2>
+          <% @kids.each do |kid| %>
+          <%= kid.first_name %>
+          <%= kid.birth_date %>
+          <% end %>
+      </div>
+    </div>
+  </div>
