@@ -1,6 +1,7 @@
 // ICI C'EST LA ZONE IMPORTANTE
 $font-family: 'Lato', sans-serif;
-$btn-primary-bg: #9b9b98;
+$btn-primary-color: white;
+$btn-primary-bg: #a94442;
 
 $input-color: #666;
 $input-bg: white;
@@ -25,5 +26,4 @@ $input-color-placeholder: lightgrey;
 @import "contact";
 @import "chosen";
 @import "common";
-
 

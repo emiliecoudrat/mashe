@@ -23,7 +23,6 @@ class AdvertsController < InheritedResources::Base
     if @advert.save
       redirect_to school_adverts_path, notice: 'Bravo, votre share annonce a été correctement créée.'
     else
-      raise
       render :new, notice: 'Mince, réessayer svp.'
     end
   end

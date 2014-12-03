@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'profiles/show'
+
   get 'home/contact'
 
   mount RailsAdmin::Engine => '/admin_2', as: 'rails_admin'
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   devise_for :parents
+
   root to: "home#index"
 
   resources :schools do

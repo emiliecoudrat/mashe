@@ -1,2 +1,8 @@
 <h1>Informations#edit</h1>
 <p>Find me in app/views/informations/edit.html.erb</p>
+
+<h1> Message à la classe :  <%= @information.name %></h1>
+
+<%= render 'informations/form' %>
+|
+<%= link_to 'Retour', camp_informations_path(@camp) %>

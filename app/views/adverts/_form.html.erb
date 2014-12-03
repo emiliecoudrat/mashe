@@ -1,5 +1,5 @@
 <%= bootstrap_form_for([@school, @advert]) do |f| %>
-
+  <div> <strong>THEME</strong> </div>
   <% Advert::CATEGORIES.each do |category| %>
     <div class="checkbox">
       <label>
@@ -13,7 +13,8 @@
   <%= f.text_field :title %>
   <%= f.text_area :description, label: "DESCRIPTION", placeholder: "" %>
   <%= f.number_field :price_cents, label: "VOTRE PRIX", placeholder:"" %>
-  <%= f.submit "Publiez votre annonce", class: "btn btn-primary" %>
+  <%= f.submit "Vérifier votre annonce", class: "btn btn-primary" %>
 <% end %>
 
-
+edit_school_advert_path
+<%= link_to 'Retour', school_adverts_path(@school),class: "btn btn-primary" %>

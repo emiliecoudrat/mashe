@@ -1,2 +1,16 @@
-<h1>Informations#new</h1>
-<p>Find me in app/views/informations/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <div class="page-header">
+        <h1>Partager une information avec les autres parents de la classe</h1>
+      </div>
+        <%= render 'informations/form' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+      <%= link_to 'Retour', camp_informations_path(@camp) %>
+    </div>
+  </div>
+</div>
