@@ -1,2 +1,15 @@
-<h1>Kid#show</h1>
-<p>Find me in app/views/kid/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1> <%=@kid.first_name%> </h1>
+      <h1> <%=@kid.last_name%> </h1>
+      <div class="text-left">
+        <br>
+        <h3> Date de naissance: </h3>
+        <p>
+        <%= @kid.birthdate%>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

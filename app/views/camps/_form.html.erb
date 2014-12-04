@@ -1,0 +1,6 @@
+<%= bootstrap_form_for([@school, @camp]) do |f| %>
+  <%= f.collection_select :level_id, @school.levels, :id, :name %>
+  <%= f.text_field :name, placeholder: "Classe Framboise"%>
+
+  <%= f.submit class: "btn btn-primary" %>
+<% end %>

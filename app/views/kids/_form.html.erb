@@ -1,12 +1,19 @@
 <%= bootstrap_form_for(@kid) do |f| %>
+  <div class="row">
+    <div class="col-sm-6">
+      <%= f.fields_for :scholarships do |scholarship| %>
+        <%= scholarship.collection_select :camp_id, @camps, :id, :display_name, {}, class: :chosen %>
+      <% end %>
+    </div>
+    <div class="col-sm-6" style="padding: 2em 0 1em 0">
+      <%= link_to "Je crée la classe de mon enfant", new_school_camp_path(school_id: params[:school_id]) %>
+    </div>
+  </div>
+
   <%= f.text_field :first_name, placeholder: "Léa"%>
   <%= f.text_field :last_name, placeholder: "Martin"%>
   <%= f.date_field :birthdate %>
   <%= f.select :gender, [["fille", Kid::GENDERS[0]],["garçon", Kid::GENDERS[1]]] %>
-
-  <%= f.fields_for :scholarships do |scholarship| %>
-    <%= scholarship.collection_select :camp_id, @camps, :id, :display_name, {}, class: :chosen %>
-  <% end %>
 
   <%= f.submit "Ajouter votre enfant", class: "btn btn-primary" %>
 <% end %>

@@ -18,9 +18,13 @@ Rails.application.routes.draw do
   resources :schools do
     resources :events, only: [ :new, :create, :edit, :update, :index, :show, :destroy ]
     resources :adverts
+    resources :camps, only: [ :new, :create, :edit, :update ]
   end
 
-  resources :camps do
+  resources :camps, only: [] do
+    member do
+      get 'confidential_code'
+    end
     resources :kids, only: :index
     resources :informations
   end
