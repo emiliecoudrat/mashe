@@ -16,6 +16,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if parent_signed_in? %>
+        <li><%= link_to 'Mon profil', profiles_show_path%></li>
         <li> <%= image_tag "http://placehold.it/30x30", id:"profile-pic"%> </li>
         <li class="sign-out">
           <%= link_to 'Sign out', destroy_parent_session_path, method: 'delete' %></li>
