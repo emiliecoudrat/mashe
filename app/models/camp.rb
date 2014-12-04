@@ -14,6 +14,8 @@ class Camp < ActiveRecord::Base
     "#{school.name} - #{level.name} - #{name} - #{year}"
   end
 
+  private
+
   def generate_confidential_code
     return unless self.confidential_code.blank?
     self.confidential_code = loop do

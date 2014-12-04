@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   end
 
   resources :camps, only: [] do
+    member do
+      get 'confidential_code'
+    end
     resources :kids, only: :index
     resources :informations
   end
