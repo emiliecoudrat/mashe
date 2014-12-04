@@ -1,5 +1,5 @@
 class CampsController < ApplicationController
-  before_action :set_school
+  before_action :set_school, only: [:new, :create, :edit, :update]
 
   def new
     @camp = @school.camps.new
@@ -10,7 +10,7 @@ class CampsController < ApplicationController
     @camp.school = @school
     if @camp.save
       # TODOM redirect to special page to explain to parent his/her role with code
-      redirect_to confidential_code_camp_path(@school)
+      redirect_to confidential_code_camp_path(@camp)
     else
       render :new
     end
