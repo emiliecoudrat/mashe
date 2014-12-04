@@ -19,6 +19,7 @@
         <li> <%= image_tag "http://placehold.it/30x30", id:"profile-pic"%> </li>
         <li class="sign-out">
           <%= link_to 'Sign out', destroy_parent_session_path, method: 'delete' %></li>
+
         <% else %>
         <li class="sign-in"><%= link_to 'Sign in', new_parent_session_path %></li>
         <li class="sign-up"><%= link_to 'Sign up', new_parent_registration_path %></li>
