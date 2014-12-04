@@ -7,6 +7,7 @@
     </div>
   </div>
 </div>
+
 <div class="row">
     <div class="list-title page-header">
       <div class="text-center">
@@ -15,35 +16,41 @@
       </div>
     </div>
 </div>
+
 <div class="row">
-    <div class="list-title page-header">
+    <div class="list-title">
       <div class="text-center">
         <h2>Vos enfants</h2>
           <% @kids.each do |kid| %>
-          <div class="col-sm-9">
-            <div class="row">
-              <%= kid.first_name.capitalize %>
-              <%= kid.birthdate %>
-            </div>
-          </div>
-        <% end %>
+              <div class="col-sm-4">
+                <%= kid.first_name.capitalize %>
+                <%= kid.birthdate %>
+              </div>
+            <% kid.schools.each do |school| %>
+                <% current_parent.guests.each do |guest| %>
+                  <% if guest.event.school == school %>
+                    <div class="col-sm-4">
+                      <%= guest.event.name %>
+                      <%= guest.event.description %>
+                      <%= guest.event.starts_at %>
+                      <%= guest.event.ends_at %>
+                    </div>
+                  <% end %>
+                <% end %>
+                 <% current_parent.adverts.each do |advert| %>
+                  <% if advert.school == school %>
+                    <div class="col-sm-4">
+                      <%= advert.title %>
+                      <%= advert.description %>
+                      <%= advert.transaction_type %>
+                      <%= advert.price_cents %>
+                    </div>
+                  <% end %>
+                 <% end %>
+
+            <% end %>
+          <% end %>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="list-title page-header">
-      <div class="text-center">
-        <h2>Vos événements</h2>
-          <% @my_events.each do |event| %>
-          <div class="col-sm-9">
-            <div class="row">
-              <%= event.name %>
-              <%= event.description %>
-              <%= event.starts_at %>
-              <%= event.ends_at %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
+</div>
+
