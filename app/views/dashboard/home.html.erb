@@ -20,9 +20,13 @@
       <div class="text-center">
         <h2>Vos enfants</h2>
           <% @kids.each do |kid| %>
-          <%= kid.first_name %>
-          <%= kid.birth_date %>
+          <div class="col-sm-9">
+          <div class="row">
+          <%= kid.first_name.capitalize %>
+          <%= kid.birthdate %>
           <% end %>
+         </div>
+        </div>
       </div>
     </div>
   </div>
