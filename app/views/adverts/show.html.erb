@@ -1,61 +1,48 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <% content_for(:title) do %>
+     <% content_for(:title) do %>
       <%= "#{@advert.title}" %>
       <% end %>
-    </div>
-  </div>
- </div>
 
-<div class="container">
-
-  <div class="row">
-    <div class="col-xs-12">
-       <h1> Share annonce  </h1>
-       <h2> <%= "#{@advert.title}"%> </h2>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12">
+        <h1> Share annonce <%= "#{@advert.title}"%> </h1>
+        <div>Tags: <%= @advert.category_list.join(", ") %></div>
       </div>
     </div>
-  </div>
 
-
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="transaction-type">
-        <span> Opportunités : <%= "#{@advert.transaction_type}"%> </span>
+    <div class="row">
+      <div class="col-xs-6 col-sm-4">
+        <div class="transaction-type">
+          <span> Opportunités : <%= "#{@advert.transaction_type}"%> </span>
+          <span> Titre : <%= "#{@advert.title}"%> </span>
+        <div class="price_cents">
+          <span class="pricetag">
+          <span> Prix : <%= "#{@advert.price_cents}"%>€</span>
+        </div>
       </div>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="title">
-        <span> Titre : <%= "#{@advert.title}"%> </span>
+      <div class="col-xs-6 col-sm-4">
+        <div class="description">
+          <span> Description : <%= "#{@advert.description}"%> </span>
+        </div>
+
+      <div class="col-xs-6 col-sm-4">
+        <% @advert.advertpictures.each do |advert_picture| %>
+          <%= image_tag(advert_picture.picture(:thumb)) %>
+        <% end %>
       </div>
-    </div>
-  </div>
 
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="description">
-        <span> Description : <%= "#{@advert.description}"%> </span>
+        <div class="updated_at">
+        <span> Mise à jour le : <%= "#{@advert.updated_at}"%> </span>
       </div>
-    </div>
-  </div>
-
-  <div>Tags: <%= @advert.category_list.join(", ") %></div>
-
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="price_cents">
-        <span class="pricetag">
-          <span> Prix : <%= "#{@advert.price_cents}"%>
-            €</span>
       </div>
-    </div>
-  </div>
+
+      <div class="col-xs-6 col-sm-4">
+        <div> IMAGE > </div>
+      </div>
+
 
   <div class="row">
     <div class="col-xs-12">
@@ -66,23 +53,12 @@
   </div>
 
   <div class="row">
-    <div class="col-xs-12">
-      <div class="updated_at">
-        <span> Mise à jour le : <%= "#{@advert.updated_at}"%> </span>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-2">
       <%= link_to 'Edit', edit_school_advert_path(@school, @advert), class:"btn-dmc" %>
     </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12">
-  <%= link_to 'Retour', school_adverts_path(@school) %>
-   </div>
+    <div class="col-xs-2">
+      <%= link_to 'Retour', school_adverts_path(@school) %>
+    </div>
   </div>
 
 </div>
