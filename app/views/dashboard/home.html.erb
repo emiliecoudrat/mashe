@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="list-title page-header">
+      <div class="text-center">
+        <h1>Mon Share Dashboard</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+    <div class="list-title page-header">
+      <div class="text-center">
+        <h2>Aujourd'hui</h2>
+        <%= @today.to_s %>
+      </div>
+    </div>
+</div>
+<div class="row">
+    <div class="list-title page-header">
+      <div class="text-center">
+        <h2>Vos enfants</h2>
+          <% @kids.each do |kid| %>
+          <div class="col-sm-9">
+            <div class="row">
+              <%= kid.first_name.capitalize %>
+              <%= kid.birthdate %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="list-title page-header">
+      <div class="text-center">
+        <h2>Vos événements</h2>
+          <% @my_events.each do |event| %>
+          <div class="col-sm-9">
+            <div class="row">
+              <%= event.name %>
+              <%= event.description %>
+              <%= event.starts_at %>
+              <%= event.ends_at %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+
+  get 'dashboard', to: 'dashboard#home'
   get 'profiles/show'
 
   get 'home/contact'
