@@ -4,8 +4,9 @@ class DashboardController < ApplicationController
   def home
     date_of_the_day
     my_kids
-    my_events
   end
+
+  private
 
   def date_of_the_day
     @today = Time.now
@@ -15,11 +16,6 @@ class DashboardController < ApplicationController
     @kids = current_parent.kids
   end
 
-  def my_events
-    @my_events = current_parent.events
-  end
-
-private
   def set_parent
     @parent = @current_parent
   end

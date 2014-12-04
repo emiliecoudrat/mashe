@@ -16,7 +16,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="list-title page-header">
+    <div class="list-title">
       <div class="text-center">
         <h2>Vos enfants</h2>
           <% @kids.each do |kid| %>
@@ -25,25 +25,21 @@
               <%= kid.first_name.capitalize %>
               <%= kid.birthdate %>
             </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="list-title page-header">
-      <div class="text-center">
-        <h2>Vos événements</h2>
-          <% @my_events.each do |event| %>
-          <div class="col-sm-9">
             <div class="row">
-              <%= event.name %>
-              <%= event.description %>
-              <%= event.starts_at %>
-              <%= event.ends_at %>
+              <% kid.schools.each do |school| %>
+                <% current_parent.events.where(school: school).each do |event| %>
+                  <div class="col-sm-4">
+                    <%= event.name %>
+                    <%= event.description %>
+                    <%= event.starts_at %>
+                    <%= event.ends_at %>
+                  </div>
+                <% end %>
+              <% end %>
             </div>
           </div>
         <% end %>
       </div>
     </div>
   </div>
+</div>
