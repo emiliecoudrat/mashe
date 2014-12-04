@@ -8,4 +8,6 @@ class Kid < ActiveRecord::Base
 
   validates_presence_of :first_name, :last_name, :birthdate, :gender
   validates_inclusion_of :gender, in: GENDERS
+
+  accepts_nested_attributes_for :scholarships
 end
