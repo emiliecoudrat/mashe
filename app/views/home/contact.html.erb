@@ -1,72 +1,55 @@
 <div class="container">
-  <header class="grid clearfix">
+
     <div class="row">
-      <div class="bloc bloc-n">
-        <h1 class="left">Ma share école</h1>
+      <div class="col-xs-8 col-xs-offset-2 col-sm-4 text-align ">
+        <h1> Ma share école </h1>
+        <br>
+        <br>
+        <br>
+        <h5>Adresse </h5>
+        <p>31 rue Lafayette</p>
+        <p>75009 Paris </p>
+        <p>France</p>
+        <br>
+        <h5>Téléphone</h5>
+        <p>+33 (0)1 87 66 88 88</p>
+        <br>
+        <h5>Presse</h5>
+        <p>Jana YENA</p>
+        <p>27 rue du Paradis</p>
+        <p>75016 Paris</p>
+        <p>France</p>
+        <p>+33 (0)1 87 66 88 88</p>
       </div>
 
-      <div class="bloc bloc-n">
-        <h1 class="right">Contact</h1>
-      </div>
-    </div>
-  </header>
-</div>
-
-<div class="container">
-  <section class="grid">
-    <div class="bloc bloc-s-1">
-    <br>
-    <h5>Adresse </h5>
-      <h6>31 rue Lafayette
-        <br>75009 Paris
-        <br>France
-      </h6>
-    <br>
-    <h5>Téléphone</h5>
-      <h6>+33 (0)1 87 66 88 88</h6>
-      <br>
-    <h5>Presse</h5>
-      <h6>Jana YENA
-        <br>27 rue du Paradis
-        <br>75016 Paris
-        <br>France
-        <br>+33 (0)1 87 66 88 88
-      </h6>
-    </div>
-    <div class="bloc bloc-s-3-1">
-    <hr>
-    <h6></h6>
-    <form method="post">
-      <fieldset>
-        <div class="tooltip">
-          <label class"xs" for="contactform-name">Nom</label>
-          <input type="text" id="contactform-name" name="name" value> </div>
-        </div>
-        <div class="tooltip">
-          <label class"xs" for="contactform-email">Email</label>
-            <input type="text" id="contactform-email" name="name" value>
+      <div class="col-xs-8 col-xs-offset-2 col-sm-4 text-align">
+          <h1> Contact </h1>
+            <br>
+            <br>
+            <br>
+          <form role="form">
+            <div class="form-group">
+              <label for="name">Nom</label>
+              <input type="name" class="form-control" id="name" placeholder="nom">
             </div>
-        </div>
-        <div class="tooltip">
-          <label class="xs contactform-label" for="contactform-recipient">Destinataires</label>
-          <select class="contactform-imput" id="contactform-recipient" name="recipient">
-            <option value>-</option>
-            <option value="Direction">Direction</option>
-            <option value="Assistance">Assistance</option>
-            <option value="Presse">Presse</option>
-            <option value="Website">Website</option>
-          </select>
-        </div>
-        <div class="tooltip">
-          <label class="xs contactform-label" for="contactform-message">Message</label>
-          <textarea class="contactform-imput" name="text" id="contactform-message" rows="6"<>/textarea>
-       </div>
-       <input type="submit" name="submit" value="Envoyer" class="btn btn-m btn-rnd btn-alt btn-full margin-bottom">
-      </fieldset>
-        </form>
-    </div>
-    </div>
-  </section>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Votre email</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+            </div>
+            <div>
+              <textarea class="form-control" rows="6">Votre message</textarea>
+            </div>
+            <br>
+            <br>
+            <div>
+              <button type="submit" class="btn btn-pimary">Envoyer</button>
+            </div>
+          </form>
+      </div>
+  </div>
+
+  <div class="row">
+        <div class="vertical_space_contact"></div>
+  </div>
+
 </div>
-
-

@@ -5,7 +5,7 @@ class AdvertsController < InheritedResources::Base
 
 
  def index
-    @adverts = Advert.all
+    @adverts = Advert.all.order(updated_at: :desc)
     respond_with(@adverts)
   end
 

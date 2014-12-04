@@ -1,84 +1,50 @@
 
-<div class="container">
+<div class="container text-center">
   <div class="row">
-    <div class="list-title page-header">
-      <div class="text-center">
-        <h1>Les share annonces des familles </h1>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="list-title page-header">
-      <div class="text-center">
-        <h2>c'est facile, vous vous croisez tous les jours</h2>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-6 col-sm-3">
-         <%= image_tag "messhareloisirs.png"%>
+    <div class="col-xs-12 text-center">
+        <h1>Les share annonces de l' <%= "#{@school.name}"%></h1>
     </div>
   </div>
 </div>
 
-<div class="container">
-  <div class="row well">
-    <div class="col-sm-3">
-      <div>Thème</div>
-    </div>
-    <div class="col-sm-3">
-      <div>Opportunités</div>
-    </div>
-    <div class="col-sm-3">
-      <div>Titre</div>
-    </div>
-    <div class="col-sm-3">
-      <div>Prix</div>
+<div class="vertical_space"></div>
+
+<div class="container text-center">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <h2>C'est facile, vous vous croisez tous les jours <%= "#{@school.address}"%></h2>
     </div>
   </div>
 </div>
-  <tbody>
-    <div class="container">
-      <% @adverts.each do |advert| %>
-        <div class="row well">
 
-          <div class="col-sm-3">
-            <% advert.category_list.each do |category| %>
-              <%= category %>
-            <% end %>
-          </div>
+<div class="vertical_space"></div>
+      <br>
+      <br>
+      <br>
 
-          <div class="col-sm-3">
-            <%= advert.transaction_type %>
-          </div>
-          <div class="col-sm-3">
-            <%= advert.title %>
-          </div>
-          <div class="col-sm-1">
-            <%= advert.price_cents %>
-          </div>
-          <div class="col-sm-1">
-            <%= link_to 'Voir le détail', school_advert_path(@school, advert) %>
-          </div>
+<div class="container text-align">
+  <% @adverts.each do |advert| %>
+    <div class="row">
+      <div class="col-sm-2">
+        <%= advert.categories.map{|c| c.name}.join(", ") %>
+      </div>
+      <div class="col-sm-2">
+        <%= advert.transaction_type %>
+      </div>
+      <div class="col-sm-3">
+        <%= advert.title %>
+      </div>
+      <div class="col-sm-2">
+        <%= advert.price_cents %>
+      </div>
+      <% if advert.advertpictures.size > 0 %>
+        <div class="col-sm-3">
+          <%= image_tag advert.advertpictures.first.picture(:thumb) %>
         </div>
       <% end %>
-
-        <div class="row">
-          <div class="col-sm-3">
-            <%= link_to 'Publier une annonce', new_school_advert_path, class: "btn btn-primary" %>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-3">
-            <%= link_to 'Haut de page', school_adverts_path(@school),class: "btn btn-primary" %>
-          </div>
-          <div class="row">
-          <div class="col-sm-3">
-            <%= link_to 'Retour', home_contact_path ,class: "btn btn-primary" %>
-          </div>
-        </div>
+      <br>
+      <br>
+      <br>
     </div>
-</tbody>
-
-
+   <% end %>
+ </div>
