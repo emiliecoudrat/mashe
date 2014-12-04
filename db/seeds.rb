@@ -28,7 +28,7 @@ PARENTS.times do |i|
     last_name: Faker::Name.last_name,
     phone_number: Faker::PhoneNumber.phone_number,
     email: Faker::Internet.free_email,
-    password: testtestest
+    password: "testtestest"
   })
   parents << parent if parent.persisted?
   puts "[PARENT #{i}] Creating parent #{parent.first_name} #{parent.last_name}"

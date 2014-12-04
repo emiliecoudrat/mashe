@@ -31,6 +31,16 @@ ActiveRecord::Schema.define(version: 20141204104703) do
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
+  create_table "advertpictures", force: true do |t|
+    t.integer  "advert_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+  end
+
   create_table "adverts", force: true do |t|
     t.string   "title"
     t.text     "description"
