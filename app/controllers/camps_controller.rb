@@ -1,22 +1,28 @@
 class CampsController < ApplicationController
+  before_action :set_school
+
   def new
+    @camp = @school.camps.new
   end
 
   def create
+    @camp = Camp.new(camp_params)
+    @camp.school = @school
+    if @camp.save
+      # TODOM redirect to special page to explain to parent his/her role with code
+      redirect_to school_path(@school)
+    else
+      render :new
+    end
   end
 
-  def index
+  private
+
+  def set_school
+    @school = School.find(params[:school_id])
   end
 
-  def show
-  end
-
-  def edit
-  end
-
-  def update
-  end
-
-  def destroy
+  def camp_params
+    params.require(:camp).permit(:level_id, :name)
   end
 end

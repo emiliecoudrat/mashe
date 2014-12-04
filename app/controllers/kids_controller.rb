@@ -17,7 +17,7 @@ class KidsController < ApplicationController
       year = Time.now.year - 1
     end
 
-    @camps = @camps.where(year: year.to_s).order('year DESC')
+    @camps = @camps.where(year: year.to_s).order('year DESC, created_at DESC')
   end
 
   def create
