@@ -1,16 +1,25 @@
-<h1><%=@school.name%> </h1>
-<p>
-  <%= @school.address%>
-</p>
-<p>
-  <%= @school.city%>
-</p>
-<p>
-  <%= @school.country%>
-</p>
-
-<br>
-<br>
-<br>
-<br>
-<br>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <h1> <%=@school.name%> </h1>
+      <div class="text-left">
+        <br>
+        <h3> Adresse: </h3>
+        <p>
+        <%= @school.address%>
+        </p>
+        <p>
+          <%= @school.city%>
+        </p>
+        <p>
+          <%= @school.country%>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 text-center">
+      <%= link_to "Ajouter mon enfant", new_kid_path(school_id: @school.id), class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>

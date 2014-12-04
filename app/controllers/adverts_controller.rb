@@ -5,7 +5,7 @@ class AdvertsController < InheritedResources::Base
 
 
  def index
-    @adverts = Advert.all
+    @adverts = Advert.all.order(updated_at: :desc)
     respond_with(@adverts)
   end
 
@@ -14,14 +14,15 @@ class AdvertsController < InheritedResources::Base
 
   def new
     @advert = Advert.new
+    4.times { @advert.advertpictures.build }
   end
 
 # rappel : current_parent et non current_user
   def create
     @advert = @school.adverts.new(advert_params)
-    @advert.parent = current_parent
+     @advert.parent = current_parent
     if @advert.save
-      redirect_to school_adverts_path, notice: 'Bravo, votre share annonce a été correctement créée.'
+      redirect_to school_advert_path(@school, @advert), notice: 'Bravo, votre share annonce a été correctement créée.'
     else
       render :new, notice: 'Mince, réessayer svp.'
     end
@@ -47,7 +48,7 @@ class AdvertsController < InheritedResources::Base
 private
 
   def advert_params
-    params.require(:advert).permit(:title, :description, :transaction_type, :price_cents, { category_list: [] })
+    params.require(:advert).permit(:title, :description, :transaction_type, :price_cents, { category_list: [] }, advertpictures_attributes: [:picture])
   end
 
   def set_school
