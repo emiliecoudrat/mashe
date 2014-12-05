@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-6">
-      <h2>Edit <%= resource_name.to_s.humanize %></h2>
+      <h2>Mon profil</h2>
 
       <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
@@ -16,11 +16,11 @@
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
 
-        <%= f.password_field :password, autocomplete: "off", label: "(leave blank if you don't want to change it)" %>
+        <%= f.password_field :current_password, autocomplete: "off", label: "Current Password", helpe:"(we need your current password to confirm your changes)" %>
 
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        <%= f.password_field :password, autocomplete: "off", label: "New Password", helpe: "(leave blank if you don't want to change it)" %>
 
-        <%= f.password_field :current_password, autocomplete: "off", label: "(we need your current password to confirm your changes)" %>
+        <%= f.password_field :password_confirmation, autocomplete: "off", label: "New Password confirmation" %>
 
         <%= f.submit "Save your profile" %>
 
