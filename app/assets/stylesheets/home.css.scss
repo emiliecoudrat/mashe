@@ -8,7 +8,7 @@
   background-size: contain;
   background-position: center, bottom;
   background-repeat: no-repeat;
-  height: 600px;
+  height: 700px;
   padding-top: 120px, 30px;
   margin-top: 0px;
   text-align: center;
@@ -63,25 +63,18 @@
   letter-spacing: 2px;
   line-height: 2em;
   font-weight: 200px;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 
 .vertical_spacer{
-height: 5em;
+height: 20px;
 }
 
 .text-align{
 text-align: justify;
 }
 
-.mode_emploi p {
-font-size:14px;
-}
-
-.respect p {
-font-size:12px;
-}
 
 h3{
   font-size:30px;
@@ -95,9 +88,8 @@ h3{
 
 
   p{
-  font-size:12px;
-  font-weight: 500;
-  line-height: 1.1;
+  font-size: 10px;
+  font-weight: 100px;
   letter-spacing: 2px;
   }
 
@@ -115,7 +107,7 @@ h3{
   }
    }
 
-.see_adverts h3{
+.see_adverts {
   background: white;
   display:inline-block;
   font-size: 18px;

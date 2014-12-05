@@ -76,3 +76,4 @@ gem "letter_opener", group: :development
 
 gem 'mandrill-api'
 
+gem 'anniversary'

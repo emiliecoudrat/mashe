@@ -21,3 +21,13 @@ fr:
       lend: Je prête
       give: Je donne
       recommend: Je recommande
+  date:
+    formats:
+      default: "%d-%m-%Y"
+      short: "%b %d"
+      long: "%B %d, %Y"
+  time:
+    formats:
+      default: "%A %d %B à %H:%m"
+      short: "%b %d"
+      long: "%B %d, %Y"

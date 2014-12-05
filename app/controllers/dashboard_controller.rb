@@ -12,6 +12,10 @@ class DashboardController < ApplicationController
     @today = Time.now
   end
 
+  def age_in_days()
+  (@today - Date.new()).to_i
+end
+
   def my_kids
     @kids = current_parent.kids
   end

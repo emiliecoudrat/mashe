@@ -10,4 +10,13 @@ class Kid < ActiveRecord::Base
   validates_inclusion_of :gender, in: GENDERS
 
   accepts_nested_attributes_for :scholarships
+
+  def current_camp
+    camps.order('year DESC').first
+  end
+
+  def is_birthday?
+    birthdate.month == Time.now.month && birthdate.day == Time.now.day
+  end
+
 end

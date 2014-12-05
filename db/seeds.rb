@@ -1,11 +1,11 @@
 require "faker"
 
 # Faker creations
-PARENTS = 100
-SCHOOLS = 5
+PARENTS = 40
+SCHOOLS = 2
 # 8 levels
-CAMPS_PER_LEVEL = 2
-KIDS_PER_CAMP = 25
+CAMPS_PER_LEVEL = 1
+KIDS_PER_CAMP = 6
 
 # Destroy old seeds when new faker seeds
 School.destroy_all
