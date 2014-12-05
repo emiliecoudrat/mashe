@@ -2,7 +2,7 @@
   <div class="row">
     <div class="list-title page-header">
       <div class="text-center">
-        <h1>Mon Share Dashboard</h1>
+        <h1>Mon Dashboard</h1>
       </div>
     </div>
   </div>
@@ -12,45 +12,46 @@
     <div class="list-title page-header">
       <div class="text-center">
         <h2>Aujourd'hui</h2>
-        <%= @today.to_s %>
+        <%= l @today, format: :short %>
       </div>
     </div>
 </div>
 
-<div class="row">
-    <div class="list-title">
-      <div class="text-center">
-        <h2>Vos enfants</h2>
-          <% @kids.each do |kid| %>
-              <div class="col-sm-4">
-                <%= kid.first_name.capitalize %>
-                <%= kid.birthdate %>
-              </div>
-            <% kid.schools.each do |school| %>
-                <% current_parent.guests.each do |guest| %>
-                  <% if guest.event.school == school %>
-                    <div class="col-sm-4">
-                      <%= guest.event.name %>
-                      <%= guest.event.description %>
-                      <%= guest.event.starts_at %>
-                      <%= guest.event.ends_at %>
-                    </div>
-                  <% end %>
-                <% end %>
-                 <% current_parent.adverts.each do |advert| %>
-                  <% if advert.school == school %>
-                    <div class="col-sm-4">
-                      <%= advert.title %>
-                      <%= advert.description %>
-                      <%= advert.transaction_type %>
-                      <%= advert.price_cents %>
-                    </div>
-                  <% end %>
-                 <% end %>
-
+  <% @kids.each do |kid| %>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-1">
+        <h3 class="bordeaux"><%= kid.first_name.capitalize %></h3>
+          <% kid_age = Time.now.to_date.years_months_days_since(kid.birthdate) %>
+          <p><%= "#{kid.first_name} a"%> <%= kid_age[0] %> ans, <%= kid_age[1] %> mois et <%= kid_age[2] %> jour(s)</p>
+          <% kid.current_camp.kids.each do |other_kid| %>
+            <% if other_kid.is_birthday? %>
+              <p> Happy Birthday <%= "#{@other_kid.first_name}"%></p>
             <% end %>
           <% end %>
+            <br>
+            <p class="bordeaux">Journal de la classe </p>
+            <br>
+            <p class="bordeaux">Annuaire des copains de classe</p>
+    </div>
+
+      <div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-1">
+        <br>
+        <br>
+        <br>
+        <p class="bordeaux">Ses invitations</p>
+        <% current_parent.events.each do |event| %>
+          <p>Le <%= l event.ends_at %></p>
+          <p><%= event.name %></p>
+          <p><%= event.description %></p>
+          <% event.guests.each do |guest| %>
+            <p> Avec <%= guest.parent.first_name %> <%" "%> <%= guest.parent.last_name %></p>
+          <% end %>
+        <% end %>
+        <br>
+        <br>
+        <br>
       </div>
     </div>
+  <% end %>
 </div>
 
