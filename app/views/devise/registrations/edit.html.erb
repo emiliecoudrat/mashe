@@ -6,9 +6,13 @@
       <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= devise_error_messages! %>
 
+        <%= f.text_field :title, autofocus: true %>
+
         <%= f.text_field :first_name, autofocus: true %>
 
         <%= f.text_field :last_name, autofocus: true %>
+
+        <%= f.phone_field :phone_number, autofocus: true %>
 
         <%= f.email_field :email, autofocus: true %>
 
@@ -16,9 +20,9 @@
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
 
-        <%= f.password_field :current_password, autocomplete: "off", label: "Current Password", helpe:"(we need your current password to confirm your changes)" %>
+        <%= f.password_field :current_password, autocomplete: "off", label: "Current Password", help:"(we need your current password to confirm your changes)" %>
 
-        <%= f.password_field :password, autocomplete: "off", label: "New Password", helpe: "(leave blank if you don't want to change it)" %>
+        <%= f.password_field :password, autocomplete: "off", label: "New Password", help: "(leave blank if you don't want to change it)" %>
 
         <%= f.password_field :password_confirmation, autocomplete: "off", label: "New Password confirmation" %>
 
