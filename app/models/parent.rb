@@ -10,7 +10,7 @@ class Parent < ActiveRecord::Base
   has_many :events  # Note: events that this parent created
   has_many :guests
 
-  validates_presence_of :last_name, :first_name, :email, :password
+  validates_presence_of :last_name, :first_name, :email
 
   def display_name
     "#{title} #{first_name} #{last_name}"
